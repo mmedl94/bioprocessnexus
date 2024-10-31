@@ -12,6 +12,10 @@ from hist import *
 from explanations import *
 from scaling_performance import *
 
+def launch_nexus():
+    app = App()
+    app.mainloop()
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -186,5 +190,4 @@ class nexus(ctk.CTkToplevel):
         self.batch_predict_button.grid(row=9, column=0, padx=20, pady=self.button_pad_y) 
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    launch_nexus()

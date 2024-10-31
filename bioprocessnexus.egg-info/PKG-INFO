@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: bioprocessnexus
+Version: 0.0.1
+Summary: A package for easy sharing and analysis of techno economic models
+Author-email: Matthias Medll <matthias.medl@chello.at>
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: importlib-metadata; python_version < "3.10"
+
+# BioProcessNexus
+This package is a tool to facilitate easy sharing and analysis of techno economic process models. 
