@@ -1,6 +1,11 @@
 [project]
-name = "BioProcessNexus"
+name = "bioprocessnexus"
 version = "0.0.1"
+authors = [
+  { name="Matthias Medll", email="matthias.medl@chello.at" },
+]
+description = "A package for easy sharing and analysis of techno economic models"
+readme = "README.md"
 dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.10"',
