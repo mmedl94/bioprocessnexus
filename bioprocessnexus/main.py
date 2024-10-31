@@ -2,15 +2,15 @@ import threading
 import queue
 import ctypes
 import customtkinter as ctk
-from performance_eval import *
-from model_training import *
-from interact_hist import *
-from mc_subsampling import *
-from data_managment import *
-from prediction_making import *
-from hist import *
-from explanations import *
-from scaling_performance import *
+from .performance_eval import *
+from .model_training import *
+from .interact_hist import *
+from .mc_subsampling import *
+from .data_managment import *
+from .prediction_making import *
+from .hist import *
+from .explanations import *
+from .scaling_performance import *
 
 def launch_nexus():
     app = App()
