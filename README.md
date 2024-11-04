@@ -25,7 +25,7 @@ after downloading the file.
 
 The GUI can the be launched by importing the bioprocessnexus and running bioprocessnexus.launch_nexus() in python:
 
-```
+``` python
 import bioprocessnexus
 bioprocessnexus.launch_nexus()
 ```
