@@ -1,0 +1,1102 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bioprocessnexus package &mdash; bioprocessnexus v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d29a5c0e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="bioprocessnexus" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bioprocessnexus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">bioprocessnexus</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bioprocessnexus package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.data_managment">bioprocessnexus.data_managment module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.bool_switch"><code class="docutils literal notranslate"><span class="pre">bool_switch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.choose_model"><code class="docutils literal notranslate"><span class="pre">choose_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.choose_y"><code class="docutils literal notranslate"><span class="pre">choose_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.fix_selection"><code class="docutils literal notranslate"><span class="pre">fix_selection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.mix_models"><code class="docutils literal notranslate"><span class="pre">mix_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.save_mixture_model"><code class="docutils literal notranslate"><span class="pre">save_mixture_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.data_managment.set_file_dir"><code class="docutils literal notranslate"><span class="pre">set_file_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.explanations">bioprocessnexus.explanations module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.explanations.denormalized_prediction"><code class="docutils literal notranslate"><span class="pre">denormalized_prediction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.explanations.make_explanation"><code class="docutils literal notranslate"><span class="pre">make_explanation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.explanations.plot_explanation"><code class="docutils literal notranslate"><span class="pre">plot_explanation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.helpers">bioprocessnexus.helpers module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.check_dir"><code class="docutils literal notranslate"><span class="pre">check_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.denormalize"><code class="docutils literal notranslate"><span class="pre">denormalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.nice_round"><code class="docutils literal notranslate"><span class="pre">nice_round()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.open_help"><code class="docutils literal notranslate"><span class="pre">open_help()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.unzip_dir"><code class="docutils literal notranslate"><span class="pre">unzip_dir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.helpers.zip_dir"><code class="docutils literal notranslate"><span class="pre">zip_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.hist">bioprocessnexus.hist module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.hist.check_hist_queue"><code class="docutils literal notranslate"><span class="pre">check_hist_queue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.hist.init_hist"><code class="docutils literal notranslate"><span class="pre">init_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.hist.plot_hist"><code class="docutils literal notranslate"><span class="pre">plot_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.interact_hist">bioprocessnexus.interact_hist module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.clear_dist"><code class="docutils literal notranslate"><span class="pre">clear_dist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.fit_dist"><code class="docutils literal notranslate"><span class="pre">fit_dist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.get_probability"><code class="docutils literal notranslate"><span class="pre">get_probability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.interactive_hist"><code class="docutils literal notranslate"><span class="pre">interactive_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.interactive_hist_welcome"><code class="docutils literal notranslate"><span class="pre">interactive_hist_welcome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.save_inter_hist"><code class="docutils literal notranslate"><span class="pre">save_inter_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.interact_hist.update_hist"><code class="docutils literal notranslate"><span class="pre">update_hist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.main">bioprocessnexus.main module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.main.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.main.disclaimer"><code class="docutils literal notranslate"><span class="pre">disclaimer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.main.launch_nexus"><code class="docutils literal notranslate"><span class="pre">launch_nexus()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.main.nexus"><code class="docutils literal notranslate"><span class="pre">nexus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.mc_subsampling">bioprocessnexus.mc_subsampling module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.mc_subsampling.generate_data_interface"><code class="docutils literal notranslate"><span class="pre">generate_data_interface()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.mc_subsampling.generate_dataset"><code class="docutils literal notranslate"><span class="pre">generate_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.mc_subsampling.handle_focus_in"><code class="docutils literal notranslate"><span class="pre">handle_focus_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.mc_subsampling.update_dist_params"><code class="docutils literal notranslate"><span class="pre">update_dist_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.model_training">bioprocessnexus.model_training module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.PLS_optimize_train"><code class="docutils literal notranslate"><span class="pre">PLS_optimize_train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.initial_normalize"><code class="docutils literal notranslate"><span class="pre">initial_normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.train_GP"><code class="docutils literal notranslate"><span class="pre">train_GP()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.train_PLS"><code class="docutils literal notranslate"><span class="pre">train_PLS()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.train_RF"><code class="docutils literal notranslate"><span class="pre">train_RF()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.train_models"><code class="docutils literal notranslate"><span class="pre">train_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.model_training.train_save_params"><code class="docutils literal notranslate"><span class="pre">train_save_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.optimizer">bioprocessnexus.optimizer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.check_hbo_queue"><code class="docutils literal notranslate"><span class="pre">check_hbo_queue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.hoptr"><code class="docutils literal notranslate"><span class="pre">hoptr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.intiate_optimizer_main"><code class="docutils literal notranslate"><span class="pre">intiate_optimizer_main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.optimize"><code class="docutils literal notranslate"><span class="pre">optimize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.run_hopt"><code class="docutils literal notranslate"><span class="pre">run_hopt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.optimizer.target_function"><code class="docutils literal notranslate"><span class="pre">target_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.performance_eval">bioprocessnexus.performance_eval module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.performance_eval.check_plot_predictions_queue"><code class="docutils literal notranslate"><span class="pre">check_plot_predictions_queue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.performance_eval.init_plot_predictions"><code class="docutils literal notranslate"><span class="pre">init_plot_predictions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.performance_eval.plot_predictions"><code class="docutils literal notranslate"><span class="pre">plot_predictions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.prediction_making">bioprocessnexus.prediction_making module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.prediction_making.batch_prediction_template"><code class="docutils literal notranslate"><span class="pre">batch_prediction_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.prediction_making.batch_prediction_welcome"><code class="docutils literal notranslate"><span class="pre">batch_prediction_welcome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.prediction_making.make_batch_predictions"><code class="docutils literal notranslate"><span class="pre">make_batch_predictions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.prediction_making.make_predictions"><code class="docutils literal notranslate"><span class="pre">make_predictions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.prediction_making.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus.scaling_performance">bioprocessnexus.scaling_performance module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.scaling_performance.check_data_scaling_queue"><code class="docutils literal notranslate"><span class="pre">check_data_scaling_queue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.scaling_performance.data_scaling"><code class="docutils literal notranslate"><span class="pre">data_scaling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bioprocessnexus.scaling_performance.init_data_scaling"><code class="docutils literal notranslate"><span class="pre">init_data_scaling()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-bioprocessnexus">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bioprocessnexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">bioprocessnexus</a></li>
+      <li class="breadcrumb-item active">bioprocessnexus package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/bioprocessnexus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bioprocessnexus-package">
+<h1>bioprocessnexus package<a class="headerlink" href="#bioprocessnexus-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-bioprocessnexus.data_managment">
+<span id="bioprocessnexus-data-managment-module"></span><h2>bioprocessnexus.data_managment module<a class="headerlink" href="#module-bioprocessnexus.data_managment" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.bool_switch">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">bool_switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.bool_switch" title="Link to this definition"></a></dt>
+<dd><p>Sets the feature selection for a specific feature to “0” in the application’s selection interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>name</strong> – The name of the feature whose selection is being modified.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function directly modifies the “feature_selection” attribute in “parent”.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.choose_model">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">choose_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.choose_model" title="Link to this definition"></a></dt>
+<dd><p>Prompts the user to select a .nexus model file and loads the specified model into the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function validates the selected file format and path, loads feature selections,
+and stores relevant data within the “parent” instance for use in subsequent analysis.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.choose_y">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">choose_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.choose_y" title="Link to this definition"></a></dt>
+<dd><p>Opens a window to allow the user to select response and feature variables from the loaded data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function checks if data is loaded, then generates a new window where the user
+can specify which columns to use as responses or features. This selection is stored
+within the application and influences further analysis or model building.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.fix_selection">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">fix_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.fix_selection" title="Link to this definition"></a></dt>
+<dd><p>Finalizes the selected features and responses for the application, applying user choices to the main instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>The function converts selected features and responses into boolean arrays and
+stores them in the parent instance for further processing. Checks if at least one
+response and one feature are selected, otherwise shows an error message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.mix_models">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">mix_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.mix_models" title="Link to this definition"></a></dt>
+<dd><p>Allows the user to generate a mixture of experts model by combining multiple models from a specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function prompts the user to select a directory containing model links, then
+reads available models and responses, populates a GUI window where the user can
+specify which models to include in the mixture. Finalizes the model combination by
+allowing a model name input.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.save_mixture_model">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">save_mixture_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.save_mixture_model" title="Link to this definition"></a></dt>
+<dd><p>Saves the configured mixture model, verifying model compatibility and storing it in a specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function checks feature compatibility across selected models, creates a directory
+for the new mixture model, and saves model-specific data in a consistent format. It
+then loads the new model for immediate use in the application.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.data_managment.set_file_dir">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.data_managment.</span></span><span class="sig-name descname"><span class="pre">set_file_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.data_managment.set_file_dir" title="Link to this definition"></a></dt>
+<dd><p>Prompts the user to select a data file (CSV or Excel) and loads it into the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function displays an information box, resets some attributes in parent,
+opens a file dialog for selecting a CSV or Excel file, reads the file, and
+processes it into the application’s data structure. It performs checks to ensure
+data format and compatibility.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.explanations">
+<span id="bioprocessnexus-explanations-module"></span><h2>bioprocessnexus.explanations module<a class="headerlink" href="#module-bioprocessnexus.explanations" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.explanations.denormalized_prediction">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.explanations.</span></span><span class="sig-name descname"><span class="pre">denormalized_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.explanations.denormalized_prediction" title="Link to this definition"></a></dt>
+<dd><p>Makes predictions on normalized input data and denormalizes the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_in</strong> (<em>numpy array</em>) – Normalized input data for the model.</p></li>
+<li><p><strong>parent</strong> – The main application instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A numpy array of denormalized predictions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>data_out</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.explanations.make_explanation">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.explanations.</span></span><span class="sig-name descname"><span class="pre">make_explanation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.explanations.make_explanation" title="Link to this definition"></a></dt>
+<dd><p>Initializes the SHAP explanation window, prompting the user to enter a fraction of samples to analyze.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Displays an error message if no model has been loaded.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.explanations.plot_explanation">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.explanations.</span></span><span class="sig-name descname"><span class="pre">plot_explanation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.explanations.plot_explanation" title="Link to this definition"></a></dt>
+<dd><p>Generates and displays SHAP explanations for model predictions on a fraction of the test dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function loads the model, computes SHAP values using KernelExplainer, and plots the explanations
+for each response variable. It handles memory errors gracefully by prompting the user to reduce
+the number of samples if necessary.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.helpers">
+<span id="bioprocessnexus-helpers-module"></span><h2>bioprocessnexus.helpers module<a class="headerlink" href="#module-bioprocessnexus.helpers" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.check_dir">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">check_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.check_dir" title="Link to this definition"></a></dt>
+<dd><p>Verifies and creates the necessary directory structure for storing logs or images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>y_dir</strong> (<em>str</em>) – Directory name for a specific response variable.</p></li>
+<li><p><strong>dir_type</strong> (<em>str</em>) – Type of directory to create (e.g., “logs”, “images”).</p></li>
+<li><p><strong>central_log</strong> (<em>int</em><em>, </em><em>optional</em>) – If set to 1, creates only the main directory without nested folders.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to the created directory, if central_log is 0.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.denormalize">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">denormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.denormalize" title="Link to this definition"></a></dt>
+<dd><p>Reverts normalization by applying mean and standard deviation scaling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>numpy array</em>) – Array to be denormalized.</p></li>
+<li><p><strong>mus</strong> (<em>numpy array</em>) – Array of means used for normalization.</p></li>
+<li><p><strong>stds</strong> (<em>numpy array</em>) – Array of standard deviations used for normalization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Denormalized input array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>denormalized_array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.nice_round">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">nice_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.nice_round" title="Link to this definition"></a></dt>
+<dd><p>Rounds a number based on its magnitude to provide a concise output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>float</em>) – Number to be rounded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rounded number with appropriate precision.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.normalize">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.normalize" title="Link to this definition"></a></dt>
+<dd><p>Normalizes the input array by subtracting the mean and dividing by the standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>numpy array</em>) – Array to be normalized.</p></li>
+<li><p><strong>mus</strong> (<em>numpy array</em>) – Array of means for each feature in “array”.</p></li>
+<li><p><strong>stds</strong> (<em>numpy array</em>) – Array of standard deviations for each feature in “array”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized input array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>normalized_array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.open_help">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">open_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.open_help" title="Link to this definition"></a></dt>
+<dd><p>Opens a web browser to the help tutorial URL.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.unzip_dir">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">unzip_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.unzip_dir" title="Link to this definition"></a></dt>
+<dd><p>Extracts a zip file selected by the user into a new directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function prompts the user to select a zip file, creates a directory with the same name,
+and extracts the zip file contents into this directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.helpers.zip_dir">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.helpers.</span></span><span class="sig-name descname"><span class="pre">zip_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.helpers.zip_dir" title="Link to this definition"></a></dt>
+<dd><p>Compresses a directory selected by the user into a zip file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function prompts the user to select a directory, creates a zip file with the same name,
+and saves it in the same location.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.hist">
+<span id="bioprocessnexus-hist-module"></span><h2>bioprocessnexus.hist module<a class="headerlink" href="#module-bioprocessnexus.hist" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.hist.check_hist_queue">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.hist.</span></span><span class="sig-name descname"><span class="pre">check_hist_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.hist.check_hist_queue" title="Link to this definition"></a></dt>
+<dd><p>Monitors the plotting queue for completed histograms and displays them in a new window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function continues to check the queue until all histograms are plotted.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.hist.init_hist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.hist.</span></span><span class="sig-name descname"><span class="pre">init_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.hist.init_hist" title="Link to this definition"></a></dt>
+<dd><p>Initializes the histogram plotting process, including checking for loaded models and initiating plot threads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Displays an error message if no model has been loaded</strong><strong> or </strong><strong>if responses and features are not selected.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.hist.plot_hist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.hist.</span></span><span class="sig-name descname"><span class="pre">plot_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.hist.plot_hist" title="Link to this definition"></a></dt>
+<dd><p>Generates and saves histograms of response data with fitted probability distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function fits a probability distribution to each response, plots the histogram with fitted distribution,
+and saves both the plot and distribution parameters.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.interact_hist">
+<span id="bioprocessnexus-interact-hist-module"></span><h2>bioprocessnexus.interact_hist module<a class="headerlink" href="#module-bioprocessnexus.interact_hist" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.clear_dist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">clear_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.clear_dist" title="Link to this definition"></a></dt>
+<dd><p>Clears the fitted distribution and associated annotations from the histogram display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.fit_dist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">fit_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.fit_dist" title="Link to this definition"></a></dt>
+<dd><p>Fits a probability distribution to the current histogram data and displays the PDF on the histogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.get_probability">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">get_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.get_probability" title="Link to this definition"></a></dt>
+<dd><p>Calculates the probability within specified bounds on the fitted distribution and updates the UI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.interactive_hist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">interactive_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.interactive_hist" title="Link to this definition"></a></dt>
+<dd><p>Opens the interactive histogram window for the selected response, displaying histograms with interactive sliders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>y_dir</strong> (<em>str</em>) – Directory or identifier for the selected response variable.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.interactive_hist_welcome">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">interactive_hist_welcome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.interactive_hist_welcome" title="Link to this definition"></a></dt>
+<dd><p>Opens the interactive histogram welcome window, displaying buttons to choose a response for analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.save_inter_hist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">save_inter_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.save_inter_hist" title="Link to this definition"></a></dt>
+<dd><p>Saves the current interactive histogram as an image and logs distribution fit information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.interact_hist.update_hist">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.interact_hist.</span></span><span class="sig-name descname"><span class="pre">update_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.interact_hist.update_hist" title="Link to this definition"></a></dt>
+<dd><p>Updates the histogram display based on slider ranges, filtering data and adjusting the histogram view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val</strong> – Current slider values (not directly used).</p></li>
+<li><p><strong>parent</strong> – The main application instance</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.main">
+<span id="bioprocessnexus-main-module"></span><h2>bioprocessnexus.main module<a class="headerlink" href="#module-bioprocessnexus.main" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bioprocessnexus.main.App">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioprocessnexus.main.</span></span><span class="sig-name descname"><span class="pre">App</span></span><a class="headerlink" href="#bioprocessnexus.main.App" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTk</span></code></p>
+<p>Class that handles launching the disclaimer and then the GUI</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioprocessnexus.main.App.launch_nexus">
+<span class="sig-name descname"><span class="pre">launch_nexus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.main.App.launch_nexus" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bioprocessnexus.main.disclaimer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioprocessnexus.main.</span></span><span class="sig-name descname"><span class="pre">disclaimer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.main.disclaimer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
+<p>Class that handles the disclaimer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.main.launch_nexus">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.main.</span></span><span class="sig-name descname"><span class="pre">launch_nexus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.main.launch_nexus" title="Link to this definition"></a></dt>
+<dd><p>Function to launch the GUI</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bioprocessnexus.main.nexus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioprocessnexus.main.</span></span><span class="sig-name descname"><span class="pre">nexus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.main.nexus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
+<p>The core class of the GUI. It sets up all the buttons of the
+initial GUI window.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.mc_subsampling">
+<span id="bioprocessnexus-mc-subsampling-module"></span><h2>bioprocessnexus.mc_subsampling module<a class="headerlink" href="#module-bioprocessnexus.mc_subsampling" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.mc_subsampling.generate_data_interface">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.mc_subsampling.</span></span><span class="sig-name descname"><span class="pre">generate_data_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.mc_subsampling.generate_data_interface" title="Link to this definition"></a></dt>
+<dd><p>Initializes the data generation interface, allowing users to define distributions for features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function sets up UI elements for configuring the data generation process,
+including feature boundaries, distribution types, and parameter inputs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.mc_subsampling.generate_dataset">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.mc_subsampling.</span></span><span class="sig-name descname"><span class="pre">generate_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.mc_subsampling.generate_dataset" title="Link to this definition"></a></dt>
+<dd><p>Generates a synthetic dataset based on user-defined feature distributions and saves it to an Excel file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Shows error messages for incorrect parameter entries</strong><strong> or </strong><strong>distribution boundaries.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.mc_subsampling.handle_focus_in">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.mc_subsampling.</span></span><span class="sig-name descname"><span class="pre">handle_focus_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_identity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.mc_subsampling.handle_focus_in" title="Link to this definition"></a></dt>
+<dd><p>Handles focus events for entry boxes, resetting placeholder text on focus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_</strong> – Ignored positional argument for event handling.</p></li>
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>feature</strong> (<em>str</em>) – Feature name associated with the entry box.</p></li>
+<li><p><strong>box_identity</strong> (<em>int</em>) – Identifier for the specific parameter entry box.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.mc_subsampling.update_dist_params">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.mc_subsampling.</span></span><span class="sig-name descname"><span class="pre">update_dist_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.mc_subsampling.update_dist_params" title="Link to this definition"></a></dt>
+<dd><p>Updates distribution parameters and entry box states based on the selected distribution type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dist</strong> (<em>str</em>) – Selected distribution type (e.g., Fixed value, Gaussian).</p></li>
+<li><p><strong>feature</strong> (<em>str</em>) – Feature name for which the distribution is being set.</p></li>
+<li><p><strong>parent</strong> – The main application instance</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function sets placeholder text and enables or disables specific entry fields according
+to the requirements of the selected distribution.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.model_training">
+<span id="bioprocessnexus-model-training-module"></span><h2>bioprocessnexus.model_training module<a class="headerlink" href="#module-bioprocessnexus.model_training" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.PLS_optimize_train">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">PLS_optimize_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.PLS_optimize_train" title="Link to this definition"></a></dt>
+<dd><p>Trains a Partial Least Squares (PLS) regression model by finding the optimal number of components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> (<em>array-like</em>) – Training feature data.</p></li>
+<li><p><strong>y_train</strong> (<em>array-like</em>) – Training target data.</p></li>
+<li><p><strong>splitting_ratio</strong> (<em>int</em>) – Ratio used to split data into training and validation subsets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Trained PLS model with the optimal number of components.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PLSRegression</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.initial_normalize">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">initial_normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.initial_normalize" title="Link to this definition"></a></dt>
+<dd><p>Normalizes data by subtracting the mean and dividing by the standard deviation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>array</strong> (<em>numpy array</em>) – Data to be normalized.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized array, means, and standard deviations.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.train_GP">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">train_GP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.train_GP" title="Link to this definition"></a></dt>
+<dd><p>Trains and saves a Gaussian Process (GP) model, with stratified sampling for train-test split.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>splitting_ratio</strong> (<em>int</em>) – Ratio used to split data into training and test subsets.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.train_PLS">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">train_PLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.train_PLS" title="Link to this definition"></a></dt>
+<dd><p>_summary_
+Trains and saves a Partial Least Squares (PLS) model, using stratified sampling for train-test split.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>splitting_ratio</strong> (<em>int</em>) – Ratio used to split data into training and test subsets.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.train_RF">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">train_RF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.train_RF" title="Link to this definition"></a></dt>
+<dd><p>Trains and saves a Random Forest (RF) model, with stratified sampling for train-test split.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>splitting_ratio</strong> (<em>int</em>) – Ratio used to split data into training and test subsets.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.train_models">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">train_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.train_models" title="Link to this definition"></a></dt>
+<dd><p>Initiates the model training interface, allowing the user to select model types and provide names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Displays an error message if data</strong><strong> or </strong><strong>response features are not loaded.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.model_training.train_save_params">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.model_training.</span></span><span class="sig-name descname"><span class="pre">train_save_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mother_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.model_training.train_save_params" title="Link to this definition"></a></dt>
+<dd><p>Saves model and feature selection parameters in the specified directories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>mother_dir</strong> (<em>str</em>) – Directory path where model and data are saved.</p></li>
+<li><p><strong>model_type</strong> (<em>str</em>) – Type of model to train (PLS, RF or GP).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to the save folder where model parameters are stored.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.optimizer">
+<span id="bioprocessnexus-optimizer-module"></span><h2>bioprocessnexus.optimizer module<a class="headerlink" href="#module-bioprocessnexus.optimizer" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.check_hbo_queue">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">check_hbo_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.check_hbo_queue" title="Link to this definition"></a></dt>
+<dd><p>Checks the HBO queue for completed optimization results and updates the interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance containing the optimization settings and inputs.</p>
+</dd>
+</dl>
+<p>When results are found in the queue, this function applies the optimized parameters to
+the relevant UI fields and saves a log of the optimization process.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.hoptr">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">hoptr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.hoptr" title="Link to this definition"></a></dt>
+<dd><p>Starts a new thread for the hyperparameter optimization (HBO) and monitors the queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance where results will be displayed.</p>
+</dd>
+</dl>
+<p>This function initiates a separate thread to perform optimization while monitoring the
+queue for completed results, allowing for non-blocking UI updates.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.intiate_optimizer_main">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">intiate_optimizer_main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.intiate_optimizer_main" title="Link to this definition"></a></dt>
+<dd><p>Checks if all optimization weights and iteration settings are valid before starting optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> – The main application instance</p></li>
+<li><p><strong>param_space</strong> – Dictionary of parameters to be passed to the optimization process.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Displays errors if weights are missing, out of bounds, or if iterations are not set.
+Otherwise, begins the optimization process and provides feedback to the user.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.optimize">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.optimize" title="Link to this definition"></a></dt>
+<dd><p>Sets up and displays the optimization interface, allowing users to specify parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>Creates sliders and entry fields for setting weights and iteration limits for the optimization,
+and triggers optimization when all inputs are correctly configured.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.run_hopt">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">run_hopt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.run_hopt" title="Link to this definition"></a></dt>
+<dd><p>Runs the hyperparameter optimization using TPE and stores results in a queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_space</strong> – Dictionary containing search space and optimization settings.</p></li>
+<li><p><strong>queue</strong> – Queue object to hold the results for later retrieval.</p></li>
+</ul>
+</dd>
+</dl>
+<p>The function uses “fmin” to perform optimization, evaluating the target_function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.optimizer.target_function">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.optimizer.</span></span><span class="sig-name descname"><span class="pre">target_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.optimizer.target_function" title="Link to this definition"></a></dt>
+<dd><p>Defines the target function for optimization based on model predictions and normalized output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>param_space</strong> – Dictionary containing feature values, model directory, optimization ratios, and bounds.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Retruns:</dt><dd><p>target: Target value to minimize during optimization</p>
+</dd>
+</dl>
+<p>This function evaluates models based on normalized predictions, applies optimization ratios,
+and returns a target value to minimize during optimization.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.performance_eval">
+<span id="bioprocessnexus-performance-eval-module"></span><h2>bioprocessnexus.performance_eval module<a class="headerlink" href="#module-bioprocessnexus.performance_eval" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.performance_eval.check_plot_predictions_queue">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.performance_eval.</span></span><span class="sig-name descname"><span class="pre">check_plot_predictions_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.performance_eval.check_plot_predictions_queue" title="Link to this definition"></a></dt>
+<dd><p>Continuously checks the plotting queue and updates the UI with completed prediction plots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function retrieves completed plots from the queue and displays them in a new window.
+It repeats the check until the number of displayed plots matches the expected number of plots.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.performance_eval.init_plot_predictions">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.performance_eval.</span></span><span class="sig-name descname"><span class="pre">init_plot_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.performance_eval.init_plot_predictions" title="Link to this definition"></a></dt>
+<dd><p>Initializes plotting predictions vs. observations by checking if a model is loaded and starting the plotting thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function displays an error if no model is loaded; otherwise, it initializes the number of plots
+and starts the plot prediction process in a separate thread.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.performance_eval.plot_predictions">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.performance_eval.</span></span><span class="sig-name descname"><span class="pre">plot_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.performance_eval.plot_predictions" title="Link to this definition"></a></dt>
+<dd><p>Generates and saves predictions vs. observations plots for model evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function loads test data and models, makes predictions, denormalizes them, and
+calculates performance metrics (RMSE, NRMSE). The results are plotted and saved as images,
+either in a single consolidated image or individually per response variable.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.prediction_making">
+<span id="bioprocessnexus-prediction-making-module"></span><h2>bioprocessnexus.prediction_making module<a class="headerlink" href="#module-bioprocessnexus.prediction_making" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.prediction_making.batch_prediction_template">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.prediction_making.</span></span><span class="sig-name descname"><span class="pre">batch_prediction_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.prediction_making.batch_prediction_template" title="Link to this definition"></a></dt>
+<dd><p>Generates a template Excel file for batch predictions with required feature columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance.</p>
+</dd>
+</dl>
+<p>Creates a template with the column names matching the features of the loaded model and
+saves it in the model directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.prediction_making.batch_prediction_welcome">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.prediction_making.</span></span><span class="sig-name descname"><span class="pre">batch_prediction_welcome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.prediction_making.batch_prediction_welcome" title="Link to this definition"></a></dt>
+<dd><p>Opens the batch prediction welcome window for template generation or batch prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>Provides options for generating a template or making batch predictions through
+appropriate buttons and handlers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.prediction_making.make_batch_predictions">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.prediction_making.</span></span><span class="sig-name descname"><span class="pre">make_batch_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.prediction_making.make_batch_predictions" title="Link to this definition"></a></dt>
+<dd><p>Loads a batch of inputs, makes predictions for each, and saves the results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance.</p>
+</dd>
+</dl>
+<p>This function prompts the user to load a batch input file (Excel/CSV), normalizes data,
+runs predictions across all models, and saves the outputs along with original inputs.
+Shows an error if the batch file format is incorrect.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.prediction_making.make_predictions">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.prediction_making.</span></span><span class="sig-name descname"><span class="pre">make_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.prediction_making.make_predictions" title="Link to this definition"></a></dt>
+<dd><p>Opens a prediction window and initializes features, boundaries, and response variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>If a model is loaded, this function fetches feature and response names, sets boundaries,
+and prepares the prediction window. It also enables buttons for calculating outputs and
+optimizing inputs based on user entries.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.prediction_making.predict">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.prediction_making.</span></span><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.prediction_making.predict" title="Link to this definition"></a></dt>
+<dd><p>Executes prediction based on user-entered features and updates the output display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function collects user inputs, normalizes them, predicts outcomes using the selected
+model, and displays results. If inputs are incorrect, an error message is shown.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus.scaling_performance">
+<span id="bioprocessnexus-scaling-performance-module"></span><h2>bioprocessnexus.scaling_performance module<a class="headerlink" href="#module-bioprocessnexus.scaling_performance" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.scaling_performance.check_data_scaling_queue">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.scaling_performance.</span></span><span class="sig-name descname"><span class="pre">check_data_scaling_queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.scaling_performance.check_data_scaling_queue" title="Link to this definition"></a></dt>
+<dd><p>Checks the data scaling queue for completed scaling evaluations and updates the UI with results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>This function continuously monitors the queue for any completed scaling evaluations,
+displaying results in a new window as they are available.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.scaling_performance.data_scaling">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.scaling_performance.</span></span><span class="sig-name descname"><span class="pre">data_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.scaling_performance.data_scaling" title="Link to this definition"></a></dt>
+<dd><p>Performs data scaling evaluation by subsampling, training models, and plotting performance metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>The function guides users through scaling evaluation, including:</dt><dd><p>Sample subsampling, training of different model types,
+RMSE/NRMSE calculation, and saving the performance plots.</p>
+</dd>
+</dl>
+<p>All plots and logs are saved in specified directories, and results are shown in the UI.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioprocessnexus.scaling_performance.init_data_scaling">
+<span class="sig-prename descclassname"><span class="pre">bioprocessnexus.scaling_performance.</span></span><span class="sig-name descname"><span class="pre">init_data_scaling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.scaling_performance.init_data_scaling" title="Link to this definition"></a></dt>
+<dd><p>Initializes data scaling by checking model loading status and starting the scaling process in a new thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
+</dd>
+</dl>
+<p>If no model is loaded, displays an error message. Otherwise, sets up the necessary
+attributes and starts a new thread for data scaling and evaluation.</p>
+</dd></dl>
+
+</section>
+<section id="module-bioprocessnexus">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bioprocessnexus" title="Link to this heading"></a></h2>
+<p>bioprocessnexus package</p>
+<p>This package provides tools and modules for processing, analyzing, and managing techno economic bioprocess data.
+It includes functions and classes for data management, model training, prediction, performance
+evaluation, and SHAP explanations.</p>
+<dl class="simple">
+<dt>Modules:</dt><dd><ul class="simple">
+<li><p>data_management: Functions for managing and processing data.</p></li>
+<li><p>explanations: Tools for generating SHAP explanations.</p></li>
+<li><p>helpers: Utility functions for various tasks.</p></li>
+<li><p>hist: Functions related to histogram processing and analysis.</p></li>
+<li><p>interact_hist: Interactive histogram functionalities.</p></li>
+<li><p>main: The main execution script.</p></li>
+<li><p>mc_subsampling: Monte Carlo subsampling utilities.</p></li>
+<li><p>model_training: Tools for training predictive models.</p></li>
+<li><p>optimizer: Optimization of model responses.</p></li>
+<li><p>performance_eval: Functions for evaluating model performance.</p></li>
+<li><p>prediction_making: Functions for making predictions with trained models.</p></li>
+<li><p>scaling_performance: Utilities for data scaling and performance testing.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="bioprocessnexus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Matthias Medl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -12,6 +12,15 @@ from .helpers import *
 
 
 def generate_data_interface(parent):
+    """
+    Initializes the data generation interface, allowing users to define distributions for features.
+
+    Args:
+        parent: The main application instance
+
+    This function sets up UI elements for configuring the data generation process, 
+    including feature boundaries, distribution types, and parameter inputs.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded")
     else:
@@ -240,6 +249,15 @@ def generate_data_interface(parent):
 
 
 def generate_dataset(parent):
+    """
+    Generates a synthetic dataset based on user-defined feature distributions and saves it to an Excel file.
+
+    Args:
+        parent: The main application instance
+
+    Raises:
+        Shows error messages for incorrect parameter entries or distribution boundaries.
+    """
     error = 0
     sampled_dataset = pd.DataFrame()
     sampled_dataset.index.name = "Trial values"
@@ -350,12 +368,32 @@ def generate_dataset(parent):
 
 
 def handle_focus_in(_, parent, feature, box_identity):
+    """
+    Handles focus events for entry boxes, resetting placeholder text on focus.
+
+    Args:
+        _: Ignored positional argument for event handling.
+        parent: The main application instance
+        feature (str): Feature name associated with the entry box.
+        box_identity (int): Identifier for the specific parameter entry box.
+    """
     if parent.dist_box_dict[feature][box_identity].cget("foreground") != "black":
         parent.dist_var_dict[feature][box_identity].set("")
         parent.dist_box_dict[feature][box_identity].configure(fg="black")
 
 
 def update_dist_params(dist, feature, parent):
+    """
+    Updates distribution parameters and entry box states based on the selected distribution type.
+
+    Args:
+        dist (str): Selected distribution type (e.g., Fixed value, Gaussian).
+        feature (str): Feature name for which the distribution is being set.
+        parent: The main application instance
+
+    This function sets placeholder text and enables or disables specific entry fields according
+    to the requirements of the selected distribution.
+    """
     parent.dist_box_dict[feature][1].configure(fg="gray")
     parent.dist_box_dict[feature][2].configure(fg="gray")
     parent.dist_box_dict[feature][3].configure(fg="gray")
@@ -401,4 +439,3 @@ def update_dist_params(dist, feature, parent):
         parent.dist_box_dict[feature][2].configure(state="normal")
         parent.dist_box_dict[feature][3].configure(state="normal")
         parent.dist_box_dict[feature][4].configure(state="disable")
-

@@ -10,6 +10,15 @@ from .helpers import *
 
 
 def init_plot_predictions(parent):
+    """
+    Initializes plotting predictions vs. observations by checking if a model is loaded and starting the plotting thread.
+
+    Args:
+        parent: The main application instance
+
+    This function displays an error if no model is loaded; otherwise, it initializes the number of plots
+    and starts the plot prediction process in a separate thread.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -19,6 +28,15 @@ def init_plot_predictions(parent):
 
 
 def check_plot_predictions_queue(parent):
+    """
+    Continuously checks the plotting queue and updates the UI with completed prediction plots.
+
+    Args:
+        parent: The main application instance
+
+    This function retrieves completed plots from the queue and displays them in a new window.
+    It repeats the check until the number of displayed plots matches the expected number of plots.
+    """
     while not parent.queue.empty():
         parent.evaluation_window = tk.Toplevel(parent)
         parent.evaluation_window.grid_rowconfigure(0, weight=1)
@@ -34,6 +52,16 @@ def check_plot_predictions_queue(parent):
 
 
 def plot_predictions(parent):
+    """
+    Generates and saves predictions vs. observations plots for model evaluation.
+
+    Args:
+        parent: The main application instance
+
+    This function loads test data and models, makes predictions, denormalizes them, and
+    calculates performance metrics (RMSE, NRMSE). The results are plotted and saved as images,
+    either in a single consolidated image or individually per response variable.
+    """
     if parent.gr_plots_switch_var.get() == "1":
         alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
                     "T", "U", "V", "W", "X", "Y", "Z"]
@@ -111,4 +139,3 @@ def plot_predictions(parent):
         parent.queue.put(fig)
 
     tk.messagebox.showinfo("Information", f"Images saved at {dir}")
-

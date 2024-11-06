@@ -11,6 +11,18 @@ from .helpers import *
 
 
 def target_function(param_space):
+    """
+    Defines the target function for optimization based on model predictions and normalized output.
+
+    Args:
+        param_space: Dictionary containing feature values, model directory, optimization ratios, and bounds.
+
+    Retruns:
+        target: Target value to minimize during optimization
+
+    This function evaluates models based on normalized predictions, applies optimization ratios, 
+    and returns a target value to minimize during optimization.
+    """
     # Load X
     X_names = list(param_space)[:param_space["X_dims"]]
     X = []
@@ -51,6 +63,15 @@ def target_function(param_space):
 
 
 def run_hopt(param_space, queue):
+    """
+    Runs the hyperparameter optimization using TPE and stores results in a queue.
+
+    Args:
+        param_space: Dictionary containing search space and optimization settings.
+        queue: Queue object to hold the results for later retrieval.
+
+    The function uses "fmin" to perform optimization, evaluating the target_function.
+    """
     param_space_copy = {}
     for key in param_space.keys():
         param_space_copy[key] = param_space[key]
@@ -72,6 +93,15 @@ def run_hopt(param_space, queue):
 
 
 def optimize(parent):
+    """
+    Sets up and displays the optimization interface, allowing users to specify parameters.
+
+    Args:
+        parent: The main application instance
+
+    Creates sliders and entry fields for setting weights and iteration limits for the optimization,
+    and triggers optimization when all inputs are correctly configured.
+    """
     parent.optimization_window = tk.Toplevel(parent)
     parent.optimization_window.grid_rowconfigure(0, weight=1)
     parent.optimization_window.grid_columnconfigure(0, weight=1)
@@ -182,6 +212,16 @@ def optimize(parent):
 
 
 def intiate_optimizer_main(parent, param_space):
+    """
+    Checks if all optimization weights and iteration settings are valid before starting optimization.
+
+    Args:
+        parent: The main application instance
+        param_space: Dictionary of parameters to be passed to the optimization process.
+
+    Displays errors if weights are missing, out of bounds, or if iterations are not set.
+    Otherwise, begins the optimization process and provides feedback to the user.
+    """
     weight_missing = True in (
         i.get() is "" for i in parent.optimization_ratios)
     if weight_missing is False:
@@ -205,12 +245,30 @@ def intiate_optimizer_main(parent, param_space):
 
 
 def hoptr(parent):
+    """
+    Starts a new thread for the hyperparameter optimization (HBO) and monitors the queue.
+
+    Args:
+        parent: The main application instance where results will be displayed.
+
+    This function initiates a separate thread to perform optimization while monitoring the 
+    queue for completed results, allowing for non-blocking UI updates.
+    """
     check_hbo_queue(parent)
     threading.Thread(target=run_hopt, args=[
                      parent.param_space, parent.queue]).start()
 
 
 def check_hbo_queue(parent):
+    """
+    Checks the HBO queue for completed optimization results and updates the interface.
+
+    Args:
+        parent: The main application instance containing the optimization settings and inputs.
+
+    When results are found in the queue, this function applies the optimized parameters to 
+    the relevant UI fields and saves a log of the optimization process.
+    """
     if not parent.queue.empty():
         parent.results = parent.queue.get()
         parent.results = space_eval(parent.param_space, parent.results)
@@ -240,4 +298,3 @@ def check_hbo_queue(parent):
                                f"Optimal feature values saved at {dir}/optimization_logs/")
     else:
         parent.after(50, check_hbo_queue, parent)
-

@@ -16,6 +16,15 @@ from .helpers import *
 
 
 def make_explanation(parent):
+    """
+    Initializes the SHAP explanation window, prompting the user to enter a fraction of samples to analyze.
+
+    Args:
+        parent: The main application instance
+
+    Raises:
+        Displays an error message if no model has been loaded.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -52,6 +61,16 @@ def make_explanation(parent):
 
 
 def plot_explanation(parent):
+    """
+    Generates and displays SHAP explanations for model predictions on a fraction of the test dataset.
+
+    Args:
+        parent: The main application instance
+
+    This function loads the model, computes SHAP values using KernelExplainer, and plots the explanations
+    for each response variable. It handles memory errors gracefully by prompting the user to reduce
+    the number of samples if necessary.
+    """
     if parent.fraction.get() == "":
         tk.messagebox.showerror("Error message", "The fraction hasn´t been specified.",
                                 parent=parent.exp_window)
@@ -246,10 +265,19 @@ def plot_explanation(parent):
 
 
 def denormalized_prediction(data_in, parent):
+    """
+    Makes predictions on normalized input data and denormalizes the output.
+
+    Args:
+        data_in (numpy array): Normalized input data for the model.
+        parent: The main application instance
+
+    Returns:
+        data_out: A numpy array of denormalized predictions.
+    """
     preds = parent.model.predict(data_in)
     # Vectorize predictions in case they are not
     if len(preds.shape) != 1:
         preds = preds[:, 0]
     data_out = denormalize(preds, parent.y_mus, parent.y_stds)
     return data_out
-

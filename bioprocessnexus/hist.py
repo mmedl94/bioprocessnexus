@@ -11,6 +11,15 @@ from .helpers import *
 
 
 def init_hist(parent):
+    """
+    Initializes the histogram plotting process, including checking for loaded models and initiating plot threads.
+
+    Args:
+        parent: The main application instance
+
+    Raises:
+        Displays an error message if no model has been loaded or if responses and features are not selected.
+    """
     # List of distribution names for distfit
     parent.distfit_distributions = ["alpha", "beta", "gamma", "loggamma", "laplace", "chi2",
                                     "norm", "lognorm", "exponnorm", "gennorm", "powernorm", "t",
@@ -27,6 +36,14 @@ def init_hist(parent):
 
 
 def check_hist_queue(parent):
+    """
+    Monitors the plotting queue for completed histograms and displays them in a new window.
+
+    Args:
+        parent: The main application instance
+
+    This function continues to check the queue until all histograms are plotted.
+    """
     while not parent.queue.empty():
         # Creating a new window for the histogram
         parent.histogram_window = tk.Toplevel(parent)
@@ -45,6 +62,15 @@ def check_hist_queue(parent):
 
 
 def plot_hist(parent):
+    """
+    Generates and saves histograms of response data with fitted probability distributions.
+
+    Args:
+        parent: The main application instance
+
+    This function fits a probability distribution to each response, plots the histogram with fitted distribution,
+    and saves both the plot and distribution parameters.
+    """
     # Checking if a model has been loaded
     if parent.model_loaded == 0:
         parent.model_dir = str.rsplit(parent.filename, "/", 1)[0]+"/data/no_model_" + \
@@ -169,4 +195,3 @@ def plot_hist(parent):
     save_dir = save_dir.rsplit("/", 1)[0]
     tk.messagebox.showinfo(
         "Information", f"Images saved at {img_dir}\nLogs saved at {save_dir}")
-

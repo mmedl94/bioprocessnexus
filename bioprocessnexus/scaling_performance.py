@@ -15,6 +15,15 @@ from .helpers import check_dir, denormalize
 
 
 def init_data_scaling(parent):
+    """
+    Initializes data scaling by checking model loading status and starting the scaling process in a new thread.
+
+    Args:
+        parent: The main application instance
+
+    If no model is loaded, displays an error message. Otherwise, sets up the necessary
+    attributes and starts a new thread for data scaling and evaluation.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -24,6 +33,15 @@ def init_data_scaling(parent):
 
 
 def check_data_scaling_queue(parent):
+    """
+    Checks the data scaling queue for completed scaling evaluations and updates the UI with results.
+
+    Args:
+        parent: The main application instance
+
+    This function continuously monitors the queue for any completed scaling evaluations,
+    displaying results in a new window as they are available.
+    """
     while not parent.queue.empty():
         parent.evaluation_window = tk.Toplevel(parent)
         parent.evaluation_window.grid_rowconfigure(0, weight=1)
@@ -39,6 +57,17 @@ def check_data_scaling_queue(parent):
 
 
 def data_scaling(parent):
+    """
+    Performs data scaling evaluation by subsampling, training models, and plotting performance metrics.
+
+    Args:
+        parent: The main application instance
+
+    The function guides users through scaling evaluation, including:
+        Sample subsampling, training of different model types,
+        RMSE/NRMSE calculation, and saving the performance plots.
+    All plots and logs are saved in specified directories, and results are shown in the UI.
+    """
     parent.scaling_window = tk.Toplevel(parent)
     parent.scaling_window.grid_rowconfigure(0, weight=1)
     parent.scaling_window.grid_columnconfigure(0, weight=1)
@@ -193,4 +222,3 @@ def data_scaling(parent):
     tk.messagebox.showinfo(
         "Information", f"Images saved at {img_dir}\n Logs saved at {log_dir}")
     parent.scaling_window.destroy()
-

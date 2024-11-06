@@ -14,6 +14,17 @@ from .helpers import *
 
 
 def PLS_optimize_train(X_train, y_train, splitting_ratio=5):
+    """
+    Trains a Partial Least Squares (PLS) regression model by finding the optimal number of components.
+
+    Args:
+        X_train (array-like): Training feature data.
+        y_train (array-like): Training target data.
+        splitting_ratio (int): Ratio used to split data into training and validation subsets.
+
+    Returns:
+        PLSRegression: Trained PLS model with the optimal number of components.
+    """
     # Split into train and val
     strat_indices = np.argsort(y_train)
     strat_indices_val = strat_indices[::splitting_ratio]
@@ -43,6 +54,15 @@ def PLS_optimize_train(X_train, y_train, splitting_ratio=5):
 
 
 def train_models(parent):
+    """
+    Initiates the model training interface, allowing the user to select model types and provide names.
+
+    Args:
+        parent: The main application instance
+
+    Raises:
+        Displays an error message if data or response features are not loaded.
+    """
     if hasattr(parent, "data") is False:
         tk.messagebox.showerror("Error message", "No data has been loaded.")
     elif hasattr(parent, "y_names") is False:
@@ -101,6 +121,18 @@ def train_models(parent):
 
 
 def train_save_params(parent, mother_dir, model_type):
+    """
+    Saves model and feature selection parameters in the specified directories.
+
+    Args:
+        parent: The main application instance
+        mother_dir (str): Directory path where model and data are saved.
+        model_type (str): Type of model to train (PLS, RF or GP).
+
+    Returns:
+        str: Path to the save folder where model parameters are stored.
+    """
+
     if os.path.exists(f"{mother_dir}/model_links") is False:
         os.mkdir(f"{mother_dir}/model_links")
     if os.path.exists(f"{mother_dir}/data") is False:
@@ -123,6 +155,15 @@ def train_save_params(parent, mother_dir, model_type):
 
 
 def initial_normalize(array):
+    """
+    Normalizes data by subtracting the mean and dividing by the standard deviation.
+
+    Args:
+        array (numpy array): Data to be normalized.
+
+    Returns:
+        tuple: Normalized array, means, and standard deviations.
+    """
     mus = np.mean(array, axis=0)
     stds = np.std(array, axis=0)
     stds = stds+0.000000000000001
@@ -131,6 +172,13 @@ def initial_normalize(array):
 
 
 def train_PLS(parent, splitting_ratio=5):
+    """_summary_
+    Trains and saves a Partial Least Squares (PLS) model, using stratified sampling for train-test split.
+
+    Args:
+        parent: The main application instance
+        splitting_ratio (int): Ratio used to split data into training and test subsets.
+    """
     parent.status_text_var.set("Please wait")
     parent.training_window.update_idletasks()
     mother_dir = str.rsplit(parent.filename, "/", 1)[0]
@@ -202,6 +250,14 @@ def train_PLS(parent, splitting_ratio=5):
 
 
 def train_GP(parent, splitting_ratio=5):
+    """
+    Trains and saves a Gaussian Process (GP) model, with stratified sampling for train-test split.
+
+    Args:
+        parent: The main application instance
+        splitting_ratio (int): Ratio used to split data into training and test subsets.
+    """
+
     parent.status_text_var.set("Please wait")
     parent.training_window.update_idletasks()
     mother_dir = str.rsplit(parent.filename, "/", 1)[0]
@@ -277,6 +333,13 @@ def train_GP(parent, splitting_ratio=5):
 
 
 def train_RF(parent, splitting_ratio=5):
+    """
+    Trains and saves a Random Forest (RF) model, with stratified sampling for train-test split.
+
+    Args:
+        parent: The main application instance
+        splitting_ratio (int): Ratio used to split data into training and test subsets.
+    """
     parent.status_text_var.set("Please wait")
     parent.training_window.update_idletasks()
     mother_dir = str.rsplit(parent.filename, "/", 1)[0]
@@ -343,4 +406,3 @@ def train_RF(parent, splitting_ratio=5):
     tk.messagebox.showinfo("Information",
                            f"Model link saved at {model_dir}")
     parent.close_command.set(1)
-

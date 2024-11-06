@@ -15,6 +15,12 @@ from .helpers import *
 
 
 def interactive_hist_welcome(parent):
+    """
+    Opens the interactive histogram welcome window, displaying buttons to choose a response for analysis.
+
+    Args:
+        parent: The main application instance
+    """
     parent.distfit_distributions = ["alpha", "beta", "gamma", "loggamma", "laplace", "chi2",
                                     "norm", "lognorm", "exponnorm", "gennorm", "powernorm", "t",
                                     "uniform", "weibull", "triang", "levy", "dweibull",
@@ -43,6 +49,13 @@ def interactive_hist_welcome(parent):
 
 
 def interactive_hist(parent, y_dir):
+    """
+    Opens the interactive histogram window for the selected response, displaying histograms with interactive sliders.
+
+    Args:
+        parent: The main application instance
+        y_dir (str): Directory or identifier for the selected response variable.
+    """
     try:
         parent.interactive_hist_window.destroy()
     except:
@@ -197,6 +210,12 @@ def interactive_hist(parent, y_dir):
 
 
 def save_inter_hist(parent):
+    """
+    Saves the current interactive histogram as an image and logs distribution fit information.
+
+    Args:
+        parent: The main application instance
+    """
     dummy = plt.figure()
     new_manager = dummy.canvas.manager
     fig_for_saving = copy.copy(parent.fig)
@@ -218,6 +237,12 @@ def save_inter_hist(parent):
 
 
 def clear_dist(parent):
+    """
+    Clears the fitted distribution and associated annotations from the histogram display.
+
+    Args:
+        parent: The main application instance
+    """
     parent.ax3.set_title("")
     parent.max_pdf = 0
     parent.ax3.tick_params(axis='y',
@@ -239,6 +264,12 @@ def clear_dist(parent):
 
 
 def get_probability(parent):
+    """
+    Calculates the probability within specified bounds on the fitted distribution and updates the UI.
+
+    Args:
+        parent: The main application instance
+    """
     if hasattr(parent, "dist_func") is False:
         tk.messagebox.showerror("Error message", "Please fit probability distribution first.",
                                 parent=parent.interactive_hist_window)
@@ -276,6 +307,12 @@ def get_probability(parent):
 
 
 def fit_dist(parent):
+    """
+    Fits a probability distribution to the current histogram data and displays the PDF on the histogram.
+
+    Args:
+        parent: The main application instance
+    """
     dfit = distfit(distr=parent.distfit_distributions)
     dfit.fit_transform(parent.upd_y_hist)
     param = dfit.model["params"]
@@ -340,6 +377,13 @@ def fit_dist(parent):
 
 
 def update_hist(val, parent):
+    """
+    Updates the histogram display based on slider ranges, filtering data and adjusting the histogram view.
+
+    Args:
+        val: Current slider values (not directly used).
+        parent: The main application instance
+    """
     upd_y_hist = parent.y_hist.copy()
     upd_X_hist = parent.X_hist.copy()
     for i in range(len(parent.sliders)):
@@ -368,4 +412,3 @@ def update_hist(val, parent):
     if parent.warning_trigger == 0 and parent.warning_issued == 1:
         parent.warning_issued = 0
     parent.fig.canvas.draw_idle()
-

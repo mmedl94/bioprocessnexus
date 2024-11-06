@@ -10,6 +10,16 @@ from .optimizer import *
 
 
 def make_predictions(parent):
+    """
+    Opens a prediction window and initializes features, boundaries, and response variables.
+
+    Args:
+        parent: The main application instance
+
+    If a model is loaded, this function fetches feature and response names, sets boundaries,
+    and prepares the prediction window. It also enables buttons for calculating outputs and
+    optimizing inputs based on user entries.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -175,6 +185,15 @@ def make_predictions(parent):
 
 
 def predict(parent):
+    """
+    Executes prediction based on user-entered features and updates the output display.
+
+    Args:
+        parent: The main application instance
+
+    This function collects user inputs, normalizes them, predicts outcomes using the selected
+    model, and displays results. If inputs are incorrect, an error message is shown.
+    """
     try:
         X = np.array([float(i.get()) for i in parent.prediction_inputs])
     except:
@@ -208,6 +227,15 @@ def predict(parent):
 
 
 def batch_prediction_welcome(parent):
+    """
+    Opens the batch prediction welcome window for template generation or batch prediction.
+
+    Args:
+        parent: The main application instance
+
+    Provides options for generating a template or making batch predictions through
+    appropriate buttons and handlers.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -227,6 +255,15 @@ def batch_prediction_welcome(parent):
 
 
 def batch_prediction_template(parent):
+    """
+    Generates a template Excel file for batch predictions with required feature columns.
+
+    Args:
+        parent: The main application instance.
+
+    Creates a template with the column names matching the features of the loaded model and
+    saves it in the model directory.
+    """
     template_df = pd.DataFrame(
         columns=["Trial values"]+parent.feature_selection)
     template_df.to_excel(
@@ -236,6 +273,16 @@ def batch_prediction_template(parent):
 
 
 def make_batch_predictions(parent):
+    """
+    Loads a batch of inputs, makes predictions for each, and saves the results.
+
+    Args:
+        parent: The main application instance.
+
+    This function prompts the user to load a batch input file (Excel/CSV), normalizes data,
+    runs predictions across all models, and saves the outputs along with original inputs.
+    Shows an error if the batch file format is incorrect.
+    """
     if parent.model_loaded == 0:
         tk.messagebox.showerror("Error message", "No model has been loaded.")
     else:
@@ -323,4 +370,3 @@ def make_batch_predictions(parent):
         tk.messagebox.showinfo(
             "Information", f"Predictions saved at {parent.model_dir}")
         parent.batch_preds_welc_window.destroy()
-

@@ -11,6 +11,18 @@ from .helpers import *
 
 
 def set_file_dir(parent):
+    """
+    Prompts the user to select a data file (CSV or Excel) and loads it into the application.
+
+    Args:
+        parent: The main application instance
+
+    This function displays an information box, resets some attributes in parent,
+    opens a file dialog for selecting a CSV or Excel file, reads the file, and
+    processes it into the application's data structure. It performs checks to ensure
+    data format and compatibility.
+    """
+
     tk.messagebox.showinfo(
         "Information", "Plase select the file containing the data.")
     parent.model_loaded = 0
@@ -73,10 +85,29 @@ def set_file_dir(parent):
 
 
 def bool_switch(parent, name):
+    """
+    Sets the feature selection for a specific feature to "0" in the application's selection interface.
+
+    Args:
+        parent: The main application instance
+        name: The name of the feature whose selection is being modified.
+
+    This function directly modifies the "feature_selection" attribute in "parent".
+    """
     parent.feature_selection[name].set("0")
 
 
 def choose_y(parent):
+    """
+    Opens a window to allow the user to select response and feature variables from the loaded data.
+
+    Args:
+        parent: The main application instance
+
+    This function checks if data is loaded, then generates a new window where the user
+    can specify which columns to use as responses or features. This selection is stored
+    within the application and influences further analysis or model building.
+    """
     if hasattr(parent, "data") is False:
         tk.messagebox.showerror("Error message", "No data has been loaded.")
     else:
@@ -152,6 +183,16 @@ def choose_y(parent):
 
 
 def fix_selection(parent):
+    """
+    Finalizes the selected features and responses for the application, applying user choices to the main instance.
+
+    Args:
+        parent: The main application instance
+
+    The function converts selected features and responses into boolean arrays and
+    stores them in the parent instance for further processing. Checks if at least one
+    response and one feature are selected, otherwise shows an error message.
+    """
     parent.response_bool_vars = np.zeros(len(parent.response_selection))
     parent.feature_bool_vars = np.zeros(len(parent.feature_selection))
 
@@ -185,6 +226,17 @@ def fix_selection(parent):
 
 
 def mix_models(parent):
+    """
+    Allows the user to generate a mixture of experts model by combining multiple models from a specified directory.
+
+    Args:
+        parent: The main application instance
+
+    This function prompts the user to select a directory containing model links, then
+    reads available models and responses, populates a GUI window where the user can
+    specify which models to include in the mixture. Finalizes the model combination by
+    allowing a model name input.
+    """
     parent.mix_dir = ctk.filedialog.askdirectory(
         title="Select model_links folder")
     parent.mix_dir = str.rsplit(parent.mix_dir, "/", 1)[0]+"/data"
@@ -280,6 +332,17 @@ def mix_models(parent):
 
 
 def save_mixture_model(parent):
+    """
+    Saves the configured mixture model, verifying model compatibility and storing it in a specified directory.
+
+    Args:
+        parent: The main application instance
+
+    This function checks feature compatibility across selected models, creates a directory
+    for the new mixture model, and saves model-specific data in a consistent format. It
+    then loads the new model for immediate use in the application.
+    """
+
     if parent.mix_model_name.get() == "":
         cur_datetime = datetime.now().strftime("%m_%d_%Y_%H_%M")
         mix_model_name = "mixed_model_"+cur_datetime
@@ -333,6 +396,15 @@ def save_mixture_model(parent):
 
 
 def choose_model(parent):
+    """
+    Prompts the user to select a .nexus model file and loads the specified model into the application.
+
+    Args:
+        parent: The main application instance
+
+    This function validates the selected file format and path, loads feature selections,
+    and stores relevant data within the "parent" instance for use in subsequent analysis.
+    """
     tk.messagebox.showinfo(
         "Information", "Please select .nexus file from the folder ~/model_links.")
     link_dir = ctk.filedialog.askopenfilename(
@@ -357,4 +429,3 @@ def choose_model(parent):
             parent.y_names.append(response)
     tk.messagebox.showinfo("Information",
                            f"{model_name} loaded.")
-

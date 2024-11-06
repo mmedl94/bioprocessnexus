@@ -12,3 +12,5 @@ dependencies = [
 ]
 [tool.setuptools]
 packages = ["bioprocessnexus"]
+[tool.sphinx]
+extensions = ["sphinx.ext.autodoc"]
