@@ -41,7 +41,7 @@ def open_help():
     Opens a web browser to the help tutorial URL.
     """
     webbrowser.open(
-        "https://boku.ac.at/rali/stat/testseiten-stat/testseiten-stat-matthias/tutorials")
+        "https://bioprocessnexus.readthedocs.io/en/latest/")
 
 
 def zip_dir(parent):

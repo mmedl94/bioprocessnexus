@@ -1,4 +1,4 @@
-bioprocessnexus
+Documentation
 ===============
 
 .. toctree::

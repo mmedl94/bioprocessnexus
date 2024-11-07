@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein A chromatography &mdash; bioprocessnexus v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d29a5c0e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Download links" href="downloads.html" />
+    <link rel="prev" title="General GUI features" href="gui_features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bioprocessnexus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui_features.html">General GUI features</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protein A chromatography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load-monte-carlo-dataset">Load Monte-Carlo dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-and-feature-selection">Response and feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-and-performance-evaluation-of-surrogate-models">Training and performance evaluation of surrogate models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensitivity-analysis-with-shap">Sensitivity analysis with SHAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#predicting-with-the-surrogate-model">Predicting with the surrogate model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process-optimization">Process optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-predictions">Batch predictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monte-carlo-sampling-the-surrogate-model">Monte Carlo sampling the surrogate model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-histograms">Interactive histograms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Download links</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bioprocessnexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Protein A chromatography</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/protein_a_chromatography.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="protein-a-chromatography">
+<h1>Protein A chromatography<a class="headerlink" href="#protein-a-chromatography" title="Link to this heading"></a></h1>
+<p>In this tutorial we will showcase how to model and analyse a protein A chromatography process with the BioProcessNexus.</p>
+<section id="load-monte-carlo-dataset">
+<h2>Load Monte-Carlo dataset<a class="headerlink" href="#load-monte-carlo-dataset" title="Link to this heading"></a></h2>
+<p>Therefore, we first downlaod the Monte-Carlo file from the Download section and save it in a
+subdirectory of our choice. Then we open the BioProcessNexus and click on “Load data”.</p>
+</section>
+<section id="response-and-feature-selection">
+<h2>Response and feature selection<a class="headerlink" href="#response-and-feature-selection" title="Link to this heading"></a></h2>
+<p>Once we have loaded the raw Monte-Carlo data we have to select the responses and features that we want to model.</p>
+<p>The responses are variables that the model should predict. We choose the following variables as responses:</p>
+<p>mAb concentration after capturing
+Main product cost
+PMI with water
+PMI without water</p>
+<p>The features are the variables that the model should use to base its predictions on.
+We choose all the other variables to be our features.</p>
+</section>
+<section id="training-and-performance-evaluation-of-surrogate-models">
+<h2>Training and performance evaluation of surrogate models<a class="headerlink" href="#training-and-performance-evaluation-of-surrogate-models" title="Link to this heading"></a></h2>
+<p>Next we want to generate/train surrogate models capable of predicting the
+responses based on the features. Therefore, we click “Train surrogate models”,
+enter a fitting name for the model, and then intiate model training by clicking
+the corresponding button. Training will take some time and the BioProcessNexus will
+appear to be stuck (not responsing) during training. This however, is not the case.
+After a model has been trained we click “Assess prediction performance” to see
+how well it works. Let´s have a closer look at the Main product cost surrogate
+models of each type.</p>
+<p><strong>Partial least squares (PLS) model</strong></p>
+<p>PLS models are very fast to train, don´t require a lot of storage,
+but often do not perform as well as the other model types.</p>
+<ul class="simple">
+<li><p>Model size: 1.004 KB</p></li>
+<li><p>Training time: &lt; 1 second</p></li>
+<li><p>Root mean squared error: 303.48 €/kg</p></li>
+<li><p>Normalized root mean squared error: 3.19 %</p></li>
+</ul>
+<p><strong>Random forest (RF) model</strong></p>
+<p>RF models take a longer time to train and the resulting models are larger
+compared to PLS models, but on the other hand are quite robust and can
+generally be expected to achieve fairly good prediction accuracies.</p>
+<ul class="simple">
+<li><p>Model size: 71.156 KB</p></li>
+<li><p>Training time: ~32 seconds</p></li>
+<li><p>Root mean squared error: 120.19 €/kg</p></li>
+<li><p>Normalized root mean squared error: 1.26 %</p></li>
+</ul>
+<p><strong>Gaussian Process (GP) model</strong></p>
+<p>GP models take by far the longest time to train and result in
+comparatively very large models. This is holds especially true for
+larger datasets­. Additionally, training can sometimes be unstable.
+However, GP models can achieve very high accuracies with comparatively
+little data, which makes them a very attractive choice.</p>
+<ul class="simple">
+<li><p>Model size: 501.317 KB</p></li>
+<li><p>Training time: ~20.5 minutes</p></li>
+<li><p>Root mean squared error: 32.88 €/kg</p></li>
+<li><p>Normalized root mean squared error: 0.35 %</p></li>
+</ul>
+<p>Comparing the models we can see that PLS model didn´t perform well when
+predicting datapoints with a very high or very low main product cost.
+We can see this in the model predictions vs target value plot as the
+predictions at the extremes are not on the diagonal. That behaviour is problematic
+as one is often especially interested in minimizing or maximizing a response as much
+as possible, and when a model is inaccurate at the extremes, model based optimizations
+it will not work well in these regions.</p>
+<p>The RF model generally had a much lower NRMSE and had the same performance
+throughout the response range. The training time was a little bit longer, but
+the superior perfomance is definitly worth waiting half a minute longer.</p>
+<p>The GP model was by far the most accurate, but it took the longest time to train.
+In the grand scheme of things, waiting a few minutes, hours or even days is usually
+worth it considering the impact of improper decision making.</p>
+<p>Now we will investigate how well the model performance scales with the size of
+the dataset. In general, models trained with smaller datasets will be less accurate.
+To do so we have to load the model we want to analyse by clicking “Load model” and then
+select the model we want to load in the ~model_linkssubdirectory.</p>
+<p>The assessment is initiated by clicking on “Assess data scaling performance”.
+We will then be asked to enter the number of evaluations that we want to perform.
+New models of the same type of the loaded model will then be trained with subsets of the
+original training set and then the model performance of each model on the test set will
+be evaluated. E.g. if we enter 10 as the number of evaluations, 10 new models with
+differently sized subets of the original training set will be trained. Therefore, a
+larger value for the number of evaluations will produce results of a higher resolution,
+but it will require more computational resources. By clicking “Plot scaling performance”
+the analysis is initiated. Let´s look at the results for the three model types.</p>
+<p>We can see that the model accuracy of the PLS model was barely affected
+by the sample size. The RF model on the other hand benefited noticably from a
+larger sample size. As the RMSE was still declining at the maximum samlpe size,
+we can assume that this trend would continue. Therefore, it would be sensible
+to generate a larger dataset by performing a more comprehensive Monte Carlo
+sampling with original model if one wants to use the RF model for further analysis.
+Finally, the performance of the GPR model generally seemed to increase with sample size.
+One can also see that training was somewhat unstable, however this is acceptable
+considering that the model accuracy was generally very high.</p>
+<p>As the GPR model achieved the highest test-set accuracy, we will use this
+model for the rest of the tutorial.</p>
+</section>
+<section id="sensitivity-analysis-with-shap">
+<h2>Sensitivity analysis with SHAP<a class="headerlink" href="#sensitivity-analysis-with-shap" title="Link to this heading"></a></h2>
+<p>Now that we have amde sure that the model is capable of replicating
+the prediction behaviour of the original model, we are interested in
+quantifying the influence of the features on the response. We can do this
+with SHAP (SHapley Additive exPlanations), which are estimations of Shapley-values.
+In brief, the Shapley-value is a concept, which stems from game theory
+that is used to quantify the average marginal contribution of all features
+across all possible feature combinations/coalations. Consider the scenario where
+three students enter a competition as a team and win the first place. One can
+question whether all students contributed equally to the result. The average
+marginal contribution of each student answers exactly that question. Therefore,
+the competition is repeated multiple times and each time a different configuration
+of the three students enters it until all possible configurations have entered it
+(students a, b and c alone, students a and b together, students b and c together…).
+With that information we can estimate how much each student contributed to
+the final result on average over all possible configurations. A more
+comprehensive explanation of the Shapley-value and SHAP can be found here.</p>
+<p>To calculate the SHAP for the loaded model we click on “Perform sensitivity analysis”.</p>
+<p>This will result in a pop-up where we are asked to enter the fraction of
+samples that we want to include in the analysis. This is necessary as SHAP
+values are calculated individually for each analysed datapoint, and
+calculating them for the entire dataset is computationally intensive
+and in most cases won´t provide additional insight. We want to cacluate
+the SHAP values for 20% of all datapoints in our dataset and therefore
+enter 5 for x and click on “Plot explanations”. This might take some time
+depending on the chosen model and number of analysed samples!</p>
+<p>Let´s have a look at the resulting plot. The features are ranked based on
+their estimated average marginal contribution with the most important features
+being on top. We can see that the “Binding capacity of resin”, “Resin
+replacement frequency” and the “Resin cost” were the three most important
+features, while the “Number of cycles chromatography”, “Volume of buffer used
+for equilibration step”, and “Number of batches per year” were the three least
+important features. Each dot in the plot represents one datapoint. Datapoints
+with negative SHAP values are on the left hand side, while datapoints with large
+SHAP values are on the right. Datapoints with large values of the corresponding
+feature are colored in red, while datapoints with low values of that feature are
+colored in blue. Let´s have a closer look at the feature “Binding capacity of resin”.
+The left most datapoint has a SHAP value around -1800 and is colored in red. That
+means that that datapoint has a large “Binding capacity of resin” and resulted in
+a reduction of the “Main product cost”. As the SHAP values are in the same unit as
+the response, we can deduce that the extent of the “Main product cost” reduction
+(or more precisely the estimated average marginal contribution) was 1800€/kg compared
+to the average “Main product cost” across the dataset. On the other extreme we can
+see a datapoint, which has a very low “Binding capacity of resin” with a SHAP value
+of roughly 2200, meaning that the low “Binding capacity of resin” of that datapoint
+led to in increase in the “Main product cost”. All other datapoints fall somwhere
+in between that. If we now look at the feature “Number of batches per year” we can
+see that all datapoints have a SHAP value of 0. In other words, the “Number of
+batches per year” basically had no influence on the “Main product cost” at all.</p>
+<p>Using this analysis, we always have to remember that the extent of the influence
+of each feature is closely tied to the analysed dataset and model specifically.
+Therefore, the assumptions of the original model and Monte-Carlo sampling have
+to be considered for the interpretation of the plot. For instance, the boundaries
+that were set for each feature have an enormous impact on the SHAP values. If for
+example the range of the “Labor cost” were increased from 15$/h-25$/h to 100$/h-300$/h
+the influence of that parameter would definitly be affected by that. Thus, the general
+statement “The labor cost isn´t an important feature for protein A chromatography
+processes” is wrong. It only isn´t an important feature considering not only it´s sampling
+distribution, but also the sampling distribution of all other features.</p>
+</section>
+<section id="predicting-with-the-surrogate-model">
+<h2>Predicting with the surrogate model<a class="headerlink" href="#predicting-with-the-surrogate-model" title="Link to this heading"></a></h2>
+<p>Now that we have an idea what the most influential features are, we might
+be interested in using the model to predict the responses based on specific
+values for our features. Therefore, we click on “Make predictions”, which will
+produce a pop-up that allows us to do so. On the left hand side we have a list
+with all features and on the right we have a list of the responses. To predict
+the responses we simply enter the feature values that we are interested in and
+click on “Calculate outputs”.</p>
+<p>When making predictions we have to be careful that we don´t enter feature
+values that are outside of the boundaries of each feature respectively.
+The model accuracy will decrease noticably when feature values outside of
+the boundaries are used for prediction! For example, when we enter the value
+of the “Binding capacity of resin” we have to make sure that it lies between
+36 g/L and 60 g/L.</p>
+</section>
+<section id="process-optimization">
+<h2>Process optimization<a class="headerlink" href="#process-optimization" title="Link to this heading"></a></h2>
+<p>In addition to predicting the responses under a certrain setting, we can
+also optimize the process using Bayesian optimization. Therefore, we click
+on “Search optimal inputs” in the “Make model predictions” pop-up, which will
+spawn another pop-up. Here we have to set a few parameters of the optimization algorithm.</p>
+<p>The number of iterations of the optimizer:  A small number of iterations
+will result in a quick result, but the found optimium might be suboptimal.
+A large one will take unnecessarily long, but will probably result in a better
+solution. The optimal number of iterations is dependant on the complexity of
+the problem. We set this to 1000.</p>
+<p>The weights for the responses: Each response has a corresponding weight
+that can be entered directly into the text box or be chosen with the slider.
+If a response has a large weight, the optimizer will prioritize optimizing that
+response. A weight of 0 results in the optimizer not taking that response into
+account at all. For the final optimization, only the relative magnitude between
+the weights matters; e.g. when all responses have the same weight they will be
+considerd equally, irrespective whether their value is 1 or 10. Let´s say we are
+most interested in the “Main product cost”, but don´t want to ignore the other
+responses completely. Then we can for instance set the weight of the “Main
+product cost” to 8 and the other weights to 3.</p>
+<p>Whether the optimizer should maximize or minimize the features for a response.
+We want to minimize the “Main product cost”, “PMI with water” and “PMI without
+water”, while maximzing the “mAb concentration after capturing”.
+Optional: Whether a feature should be fixed to a specified value. This might be
+interest when there are features in our dataset that we are certain won´t change.
+For instance the “Resin cost” might be fixed due to an preexisting agreement with
+the supplier. Therefore optimizing it won´t help us as we couldn´t change it even
+if we wanted to. Let´s say we want to fix it at 6000 €/L. Then we go to the “Make
+model predictions” pop-up, enter that value and click on the switch in the row that
+says “Resin cost”.</p>
+<p>Once we have parameterized the optimizer we can launch it by clicking on
+“Accept” in the “Optimize inputs” pop-up. After the optimizer has finished,
+the found feature values are automatically entered in the entry boxes of the
+“Make model predictions” pop-up. Addtionally, a log is saved under
+~logsmodel_nameoptimization_logsmm_dd_yyyy_hh_mm.txt. Then we can let the
+model predict the responses with the optimized features to assess how well the
+optimization worked.</p>
+<p>But what did just happen? We have performed Bayesian optimization
+with a Tree-Parzen-Estimator as implemeted in Hyperopt. The algorithm
+was originally used to optimize the hyperparameters of machine learning
+models, however it can generally be used to search the optimal values for
+a set of parameters to minimize or maximize the output of any given function
+that takes the parameters as input. Thus, we can also use the Tree-Parzen-Estimator
+to search the optimal values of the inputs of our surrogate models to minimize
+or maximize the responses. In brief, the Tree-Parzen-Estimator initally samples
+random values for each of the features and then uses the surrogate model to
+predict the responses. Then a normalized weighted sum of the responses is
+calculated and stored. This porcess is reapeated a few times. Then, Parzen-Estimators
+are used to model the relationship between the features and the weighted sum of
+the responses. For the remaining itations, the features are not sampled randomly,
+but based on the Parzen-Estimators.</p>
+</section>
+<section id="batch-predictions">
+<h2>Batch predictions<a class="headerlink" href="#batch-predictions" title="Link to this heading"></a></h2>
+<p>The prediction interface described earlier is useful for computing
+the responses at specific settings. It, however, can be cumbersome to
+use it when one wants to make predictions at multiple different settings.
+For that it is recommendet to use the “Make batch predictions” funciton.
+Therefore, we click on “Make batch predictions”, which produces a pop-up.
+Then we generate a tempalte by clicking “Generate template”. The tamplate will
+be saved at ~/data/model_name/batch_pred_template.xlsx. It contains all the
+features required for computation of the response.</p>
+<p>Then we manually enter the settings we are interested in into the table.
+Once all settings have been entered we return to the BioProcessNexus and
+click on “Make batch predictions”, which will open up a file browser with which
+we select the file containing the settings. Then the predictions will be made
+and a .xlsx file containing the features and responses will be saved at the same
+location of the template.</p>
+</section>
+<section id="monte-carlo-sampling-the-surrogate-model">
+<h2>Monte Carlo sampling the surrogate model<a class="headerlink" href="#monte-carlo-sampling-the-surrogate-model" title="Link to this heading"></a></h2>
+<p>The distributions of the features and responses of the used dataset
+can have large influence on some statisical analysis. In case of the
+BioProcessNexus, this concerns the histograms and interactive histograms.
+Datasets supported by the BioProcessNexus have a uniform distribution of
+features as this is beneficial for model training. This, however, is not
+representative of real world settings and will in consequence distort
+histograms based on these datasets. To improve this it is highly recommended
+to perform a Monte Carlos sampling with more realistic feature distributions.
+We have two options to do that. We can either use the original model or a
+surrogate model. In this tutorial we will use the Gaussian process surrogate
+model that we trained earlier.</p>
+<p>To do so we press “Perform Monte Carlo sampling”. In the pop-up we can see
+a list of all features and besides them some options for the distribution
+we want to sample from.</p>
+<p>Type of distribution: Here we can choose the type of the distribution that we
+want to sample the feature from. The options are a) “Fixed value” if we want
+to keep a value constant, b) “Gaussian distribution” if we want to sample from
+a Gaussian distribution parameterized by its mean and standard deviation, c)
+“Truncated Gaussian distribution” if we want to sample from a Gaussian, but
+prevent values outside of the chosen boundaries (e.g. if we want to avoid unfeasable
+values and extrapolation), d) “Triangular distribution” if we want to sample from
+a triangular distribution parameterized by its lower bound, mode and upper bound
+and e) “Uniform distribution” if we want to sample from a uniform distribution that
+is parameterized by its upper and lower bound.</p>
+<p>Number type: Here we choose wheather we want to sample real numbers or integers.
+This is useful to avoid values with decimals where they don´t make sense (e.g.
+a value of 42.666 doesn´t make sense for the “Number of batches per year”).</p>
+<p>Parameters 1-4: These are the parameters for defining the chosen distribution.
+Depeding on the chosen distribution one or more parameters have to be set.
+When a parameter has to be set the corresponding textbox will turn white and
+the name of the required parameter will be written in that box in light grey.</p>
+<p>Once all distributions have been fully defined we have to enter the number of
+samples in the textbox at the bottom. Depending on the complexity of the
+distributions more or less are needed, however, it is recommended to sample at least
+10000 datapoints. By clicking “Generate dataset” we perform the Monte Carlo
+sampling and save the resulting dataset at to location of the original dataset.</p>
+</section>
+<section id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Link to this heading"></a></h2>
+<p>The histogram is a valuable tool to visualize the distributions of the responses.
+We can use it to get an idea how likely certrain scenarios are and use that
+infomation for risk managment.</p>
+<p>To investigate the distributions of the responses of the newly generated dataset,
+we load it with “Load data”, select the features we are interested in with “Select
+responses and features” and proceed by clicking “Fit histogram”. This will produce
+a histogram for each of the selected responses. Additionally, a probability
+distribution is fitted to the data using the distfit package. The exact parameters
+of the fitted distributions can be found
+under ~/logs/no_model_mm_dd_yyy_hh_mm/response_name/histogram_parameters.txt and the plots are saved at
+~/images/no_model_mm_dd_yyy_hh_mm/response_name/histogram.png.</p>
+<p>When we look at the histogram of the “Main product cost” we can see that a beta
+distribution fits the histogram well. The mode of the distribution is 7551.34, which
+is the most likley “Main product cost” to occur under the given assumptions. We can
+also see that the distribution is skewed towards the upper end and that the “Main product cost”
+is between 5000 €/kg and 12500 €/kg. Additionally, we can integrate over the probability
+density function of the fitted distribution to estimate the likelihood of an event between
+two boundaries of occuring. This will be done in the next section.</p>
+</section>
+<section id="interactive-histograms">
+<h2>Interactive histograms<a class="headerlink" href="#interactive-histograms" title="Link to this heading"></a></h2>
+<p>The interactive histogram is an extention of the histogram that enables additional
+methods of analysis. To spawn it we first have to press on “Interactive histogram”
+and then on the button with the response we want to investigate, in our case
+the “Main product cost”.</p>
+<p>In the new window we can see the histogram of the main product cost on the left
+and the featuers with sliders on the right. The values within the brackets on
+the right side of the sliders indicate the lower and upper boundaries of the
+corresponding feature. By moving the sliders we can move the boundaries of the features,
+which in consequence removes datapoints with feature values outside of the
+boundaries from the histogram.</p>
+<p>For instance by moving the lower boundary of the “Binding capacity of resin”
+to 50 g/L we (temporarily) remove all datapoints with a binding capacity lower
+than that. We can see how that change shifts the distribution of the main product
+cost to the left.</p>
+<p>We can now fit a probability distribution to the new histogram by clicking “Fit distribution”.</p>
+<p>Furthermore, we can calculate the probability of an event between two boundaries
+of happening by integrating the probability distribution. Let´s say we are
+interested in the main product cost being between 5500 €/kg and 7000 €/kg.
+We then enter 5500 as the lower boundary, 7000 as the upper boundary and proceed
+by clicking “Calculate probability”. In our case the probability is 63.27%. Finally,
+we can save the plot, including the sliders, by clicking “Save image”.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gui_features.html" class="btn btn-neutral float-left" title="General GUI features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="downloads.html" class="btn btn-neutral float-right" title="Download links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Matthias Medl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

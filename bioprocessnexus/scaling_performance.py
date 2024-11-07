@@ -66,6 +66,7 @@ def data_scaling(parent):
     The function guides users through scaling evaluation, including:
         Sample subsampling, training of different model types,
         RMSE/NRMSE calculation, and saving the performance plots.
+
     All plots and logs are saved in specified directories, and results are shown in the UI.
     """
     parent.scaling_window = tk.Toplevel(parent)

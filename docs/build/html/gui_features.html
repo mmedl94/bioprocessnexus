@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General GUI features &mdash; bioprocessnexus v1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d29a5c0e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Protein A chromatography" href="protein_a_chromatography.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bioprocessnexus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General GUI features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monte-carlo-sampling">Monte Carlo Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-monte-carlo-data">Formatting Monte Carlo data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-a-model">Loading a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-model">Training a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-histograms">Plotting histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-interactive-histrogram">The interactive histrogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assessment-of-a-models-predictive-perfomrance">Assessment of a models predictive perfomrance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assessment-of-the-scaling-of-a-models-predictive-performance-with-sample-size">Assessment of the scaling of a models predictive performance with sample size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensititivity-analysis-with-shap">Sensititivity analysis with SHAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-model-predictions">Making model predictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-the-optimal-feature-values">Finding the optimal feature values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-predictions-for-multiple-datapoints-at-the-same-time">Making predictions for multiple datapoints at the same time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsampling-a-new-monte-carlo-dataset">Subsampling a new Monte-Carlo dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="protein_a_chromatography.html">Protein A chromatography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Download links</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bioprocessnexus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">General GUI features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gui_features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general-gui-features">
+<h1>General GUI features<a class="headerlink" href="#general-gui-features" title="Link to this heading"></a></h1>
+<section id="monte-carlo-sampling">
+<h2>Monte Carlo Sampling<a class="headerlink" href="#monte-carlo-sampling" title="Link to this heading"></a></h2>
+<p>Here will be the part that explains how to perform the MC sampling using freeware</p>
+</section>
+<section id="formatting-monte-carlo-data">
+<h2>Formatting Monte Carlo data<a class="headerlink" href="#formatting-monte-carlo-data" title="Link to this heading"></a></h2>
+<p>To load the data into the BioProcessNexus, the button “Select data file” has to pressed,
+which opens up a file browser with which a .csv, .xls or .xlsx file cotaining the data has to be selected.</p>
+<p>For .csv files: The Software expects the “,” as column separators and “.” as decimal separators.</p>
+<p>The string “Trial values” marks the beginning of the segment containing the data and has
+to be in the upper-left corner of the data.</p>
+<p>Take note that all values within the data file have to have a sufficient number of decimal
+places otherwise the quality of the surrogate model will decrease.</p>
+</section>
+<section id="loading-a-model">
+<h2>Loading a model<a class="headerlink" href="#loading-a-model" title="Link to this heading"></a></h2>
+<p>To load a model first press the “Load model” button and then select the corresponding
+.nexus-file in the ~/model_links/ subdirectory of you project folder.</p>
+</section>
+<section id="training-a-model">
+<h2>Training a model<a class="headerlink" href="#training-a-model" title="Link to this heading"></a></h2>
+<p>To train your own model you first have to load a dataset by pressing the
+“Load data” button and then selecting a .csv, .xls or .xlsx file contraining
+correctly formatted Monte-Carlo data (see “Formatting Monte Carlo data” for more information).
+Then you have to select the responses and features after pressing the
+“Select responses and features” button. The responses are the variables that
+the model should predict and the features the varables that the model should
+use to base its prediction on. Variables should never be used as response and
+eature simultaneously! Once you have selected the desired responses and features,
+press the “Accept” button. Thereafter, press the “Train surrogate models” button and
+select one of random forest, Gaussian process or partial least squared models. Model
+training will start immediately once one of the buttons is being pressed.</p>
+<p>Attention: the BioProcessNexus will not be responsive during model training.
+Do not panic. It will be responsive again once training has finished.</p>
+<p>After training your model will be loaded and saved in the ~/model_links/ subdirectory.</p>
+</section>
+<section id="plotting-histograms">
+<h2>Plotting histograms<a class="headerlink" href="#plotting-histograms" title="Link to this heading"></a></h2>
+<p>If you want to plot a histogram of a response, first you have to either load a
+dataset first and then select responses and features, or load a model. Then a
+histogram of all slected responses will be plotted and the underlying distribution of
+the data be estimated. The plots will be saved in the ~/images/ subdirectory and the
+details of the distributions in the ~/logs/ subdirectory.</p>
+<p>Attention: Be aware that the distributions of your features will influence the shape of the histograms of your responses! More information on the topic can be found here.</p>
+</section>
+<section id="the-interactive-histrogram">
+<h2>The interactive histrogram<a class="headerlink" href="#the-interactive-histrogram" title="Link to this heading"></a></h2>
+<p>If you want to plot an interactive histogram of a response, first you have
+to either load a dataset first and then select responses and features, or
+load a model. Thereafter, press the “Interactive histogram” button. As only one
+interactive histogram can be active at the time, you will have to select the specific
+response you want to investigate. A window will pop up with the histogram of
+the response on the left and sliders for the features on the right. By changing
+the sliders of a feature you will exclude all datapoints that have values of the
+corresponding feature that lie outside of the specified range. This can give insight
+on how certrain features influence the shape of the histogram.</p>
+<p>Attention: The more restrictions you apply to the data, the smaller the remaining dataset will be. At some point too few to datapoints will be left for the histogram to be useful. If you want to investigate very specific settings we recommend performing a new Monte Carlo sampling. For details see “Subsampling a new Monte-Carlo dataset”.</p>
+<p>Attention: Be aware that the distributions of your features will influence the shape of the histograms of your responses! More information on the topic can be found here.</p>
+</section>
+<section id="assessment-of-a-models-predictive-perfomrance">
+<h2>Assessment of a models predictive perfomrance<a class="headerlink" href="#assessment-of-a-models-predictive-perfomrance" title="Link to this heading"></a></h2>
+<p>It is essential to assess the accuracy of a surrogate model. A surrogate
+model with a low accuracy will return different predictions for the responses
+compared to the original model. As a result, all metrics generated with the
+BioProcessNexus will be off. Hold-out validation with a test set size of 20% of
+the original dataset is implemented in the BioProcessNexus. That means that 20% of
+the samples are held back during model training. Then the model is tasked to predict
+the response for these samples and the predicted value is compared with the original
+value. This comparison serves as a good assessment of model accuracy as the model
+wasn´t trained with these samples.</p>
+<p>To perform this analysis with the BioProcessNexus, first load or train a model
+and then click “Assess prediction performance”. This will produce plots of model
+predictions vs. target values for each response. Predictions that are close to the
+target value will be on the diagonal line of the plot. On the contraty, predictions
+that are off will be further away from the diagonal line. Additionally, the root
+mean squared error (RMSE) and the normalized root mean squared error (NRMSE) are be
+calculated. The RMSE is a measure of accuracy and defined as the square root of the
+average squared errors. The NRMSE is a normalized version of the RMSE that can be
+expressed as a percentage. Low RMSEs and NRMSEs indicte a low error and thus a high model accuracy.</p>
+</section>
+<section id="assessment-of-the-scaling-of-a-models-predictive-performance-with-sample-size">
+<h2>Assessment of the scaling of a models predictive performance with sample size<a class="headerlink" href="#assessment-of-the-scaling-of-a-models-predictive-performance-with-sample-size" title="Link to this heading"></a></h2>
+<p>Some model types require more samples to achieve a high prediciton performance
+compared to others. Therefore, it is of importance to assess how well any given
+model scales with the size of the dataset. This is done with the BioProcessNexus
+by training models of the same type as the selected one, but with an artificially
+reduced dataset. The model performance is then assessed on the test set. At some
+point the prediction error will pleateau off and won´t become smaller anymore
+with more datapoints. In that case the original dataset is of sufficient size.
+However, when the perdiction error is still declining with additional datapoints,
+it is suggested to perform a Monte-Carlo analysis with a larger sample size to improve model accuracy.</p>
+<p>To assess the scaling performance of a model type with the BioProcessNexus click
+“Assess data scaling performance”. A new window will appear that asks for the number of
+evaluations for each response. For instance, if a value 10 is entered 10 different models
+will be trained on 10 datasets of different sizes. Large numbers will therefore, increase
+the resolution of the analysis, but also require more computational resources.</p>
+</section>
+<section id="sensititivity-analysis-with-shap">
+<h2>Sensititivity analysis with SHAP<a class="headerlink" href="#sensititivity-analysis-with-shap" title="Link to this heading"></a></h2>
+<p>Performing a sensitivity analysis gives you an idea on how much each
+feature influences each response. This information is essential to decide,
+which of the features are the most worthwhile of improving.</p>
+<p>To perform a sensitvity analsys first train or load a model and click on
+“Perform sensitivity analysis”. You will subsequently for what fraction of
+the test set the Shapley-values should be calculated. A larger fraction will
+give you a more comprehensive overview on the influence of the features on the
+response, however it will also take more computation resources. This will produce
+a beeswarm-plot of the Shapley values for each response.</p>
+</section>
+<section id="making-model-predictions">
+<h2>Making model predictions<a class="headerlink" href="#making-model-predictions" title="Link to this heading"></a></h2>
+<p>If you want to use a model to predict the responses, you first have
+to train or load a model and then click “Make predictions”. This will
+open a interface to make model predictions. To do so you have to enter
+all feature values and then press “Calculate outputs”, which will result
+in the respective values for the responses being displayed under “Responses”.</p>
+<p>Attention: Using feature values that are outside of the displayed boundaries
+will result in extrapolation of the model. Therefore, going outside of the
+boundaries is NOT reccomended. The performance metrics for a model only hold
+true during interpolation and not during extrapolation. Additionally, the prediction
+performance is expected to decline the further outside of the boundaries a datapoint lies.</p>
+</section>
+<section id="finding-the-optimal-feature-values">
+<h2>Finding the optimal feature values<a class="headerlink" href="#finding-the-optimal-feature-values" title="Link to this heading"></a></h2>
+<p>If you want to optimize the features for a model,
+you first have to load or train that model and then click on
+“Make predictions”. This will open an interface that model predictions
+can be made with. In that interface click on “Search optimal inputs”. Before
+the optimzer is started a few parameters have to be defined.</p>
+<p>The number of iterations of the optimizer: How many iterations should be
+performed by the optimizer. A too small number of iterations will result
+in a quick result, but the found optimium might be suboptimal. A too large
+number will take unnecessarily long, but will result in a better solution.
+How many iterations the optimizer requires is dependant on the complexity
+of the problem.</p>
+<p>The weights for the responses: Each response has a corresponding weight.
+If a response has a large weight, the optimizer will prioritize optimizing
+that response. A weight of 0 results in the optimizer not taking that response
+into account at all. The importance of the weights are relative to each
+other; e.g. when all responses have the same weight, the absolute value
+of that weight doesn´t matter.</p>
+<p>Whether the optimizer should maximize or minimize the features for a response.</p>
+<p>Optional: If you cannot influence a variable (e.g. the process yield)
+and therefore don´t want it to be taken into account during optimization,
+you can click the switch in the “Fix feature” column of the prediction interface.
+Once all parameters have been set click “Accept” and the optimizer will start.
+This can take some time.</p>
+<p>Once the optimizer has finished, the found feature values will be entered
+in the model prediction interface and saved under ~/logs.</p>
+</section>
+<section id="making-predictions-for-multiple-datapoints-at-the-same-time">
+<h2>Making predictions for multiple datapoints at the same time<a class="headerlink" href="#making-predictions-for-multiple-datapoints-at-the-same-time" title="Link to this heading"></a></h2>
+<p>As making multiple predictions can be a lot of work with the
+prediction interface, we also implemented the option to define
+all the feature values in an .xlsx or .csv file and let the model
+make it´s prediction base on that. This file must have “Trial values”
+written in the first column of the first row. The first row should then
+include all feature names, which must be written exactly as in the original
+Monte-Carlo file. The BioProcessNexus will then read out all the data
+and produce a file with the corresponding predictions.</p>
+<p>Therefore, you have to train or load a model and then click on
+“Make batch predictions”. This will open a file browser where you
+have to select the file containing the feature values. Then the predictions
+will be made and saved as “batch_predictions_mm_dd_yyyy_hh_mm.csv”.</p>
+</section>
+<section id="subsampling-a-new-monte-carlo-dataset">
+<h2>Subsampling a new Monte-Carlo dataset<a class="headerlink" href="#subsampling-a-new-monte-carlo-dataset" title="Link to this heading"></a></h2>
+<p>If you want to generate a new Monte-Carlo sampling you can
+use the function “Perform Monte-Carlo sampling”. This is highly
+recommended when you want to use histograms for data interpretation.
+The reason for this is that original Monte-Carlo samplings were performed
+with uniform distributions for the features, which good for model training,
+but uniform distributions often aren´t the real underlying distributions of
+the features. Using the wrong distributions will distort the histogram and
+as a consequence reduce the accuracy of the histogram.</p>
+<p>To perform a custom Monto-Carlo sampling you will first have to load a
+model and then click on “Perform Monte Carlo sampling”. This will open an
+interface where you will have to define the sampling distributions for all features.
+Additionally, you will have to define whether the sampled values should be
+real numbers (e.g. buffer cost of 5.35 €/kg) or integers (e.g. number of batches of 35).
+Finally, you will have to enter how many samples should be taken to the textbox
+next to “Enter number of samples:” and click “Generate dataset”. The new Monte-Carlo
+dataset will then be saved as “sampled_dataset_mm_dd_yyyy_hh_mm.xlsx”.</p>
+<p>Attention: Using feature values that are outside of the displayed boundaries will
+result in extrapolation of the model. Therefore, going outside of the boundaries
+is NOT reccomended. The performance metrics for a model only hold true during
+interpolation and not during extrapolation. Additionally, the prediction performance
+is expected to decline the further outside of the boundaries a datapoint lies.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="protein_a_chromatography.html" class="btn btn-neutral float-right" title="Protein A chromatography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Matthias Medl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
