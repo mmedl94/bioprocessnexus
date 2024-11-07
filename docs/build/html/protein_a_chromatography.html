@@ -98,10 +98,14 @@
 <h2>Load Monte-Carlo dataset<a class="headerlink" href="#load-monte-carlo-dataset" title="Link to this heading"></a></h2>
 <p>Therefore, we first downlaod the Monte-Carlo file from the Download section and save it in a
 subdirectory of our choice. Then we open the BioProcessNexus and click on “Load data”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_load_data.png"><img alt="Alternative text" src="_images/nexus_tutorial_load_data.png" style="width: 600px;" />
+</a>
 </section>
 <section id="response-and-feature-selection">
 <h2>Response and feature selection<a class="headerlink" href="#response-and-feature-selection" title="Link to this heading"></a></h2>
 <p>Once we have loaded the raw Monte-Carlo data we have to select the responses and features that we want to model.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_select_res_feat.png"><img alt="Alternative text" src="_images/nexus_tutorial_select_res_feat.png" style="width: 600px;" />
+</a>
 <p>The responses are variables that the model should predict. We choose the following variables as responses:</p>
 <p>mAb concentration after capturing
 Main product cost
@@ -109,6 +113,8 @@ PMI with water
 PMI without water</p>
 <p>The features are the variables that the model should use to base its predictions on.
 We choose all the other variables to be our features.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_feature_selection.png"><img alt="Alternative text" src="_images/nexus_tutorial_feature_selection.png" style="width: 600px;" />
+</a>
 </section>
 <section id="training-and-performance-evaluation-of-surrogate-models">
 <h2>Training and performance evaluation of surrogate models<a class="headerlink" href="#training-and-performance-evaluation-of-surrogate-models" title="Link to this heading"></a></h2>
@@ -120,6 +126,8 @@ appear to be stuck (not responsing) during training. This however, is not the ca
 After a model has been trained we click “Assess prediction performance” to see
 how well it works. Let´s have a closer look at the Main product cost surrogate
 models of each type.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_train_model.png"><img alt="Alternative text" src="_images/nexus_tutorial_train_model.png" style="width: 600px;" />
+</a>
 <p><strong>Partial least squares (PLS) model</strong></p>
 <p>PLS models are very fast to train, don´t require a lot of storage,
 but often do not perform as well as the other model types.</p>
@@ -129,6 +137,8 @@ but often do not perform as well as the other model types.</p>
 <li><p>Root mean squared error: 303.48 €/kg</p></li>
 <li><p>Normalized root mean squared error: 3.19 %</p></li>
 </ul>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_PLS_performance.png"><img alt="Alternative text" src="_images/nexus_tutorial_PLS_performance.png" style="width: 600px;" />
+</a>
 <p><strong>Random forest (RF) model</strong></p>
 <p>RF models take a longer time to train and the resulting models are larger
 compared to PLS models, but on the other hand are quite robust and can
@@ -139,6 +149,8 @@ generally be expected to achieve fairly good prediction accuracies.</p>
 <li><p>Root mean squared error: 120.19 €/kg</p></li>
 <li><p>Normalized root mean squared error: 1.26 %</p></li>
 </ul>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_RF_performance.png"><img alt="Alternative text" src="_images/nexus_tutorial_RF_performance.png" style="width: 600px;" />
+</a>
 <p><strong>Gaussian Process (GP) model</strong></p>
 <p>GP models take by far the longest time to train and result in
 comparatively very large models. This is holds especially true for
@@ -151,6 +163,8 @@ little data, which makes them a very attractive choice.</p>
 <li><p>Root mean squared error: 32.88 €/kg</p></li>
 <li><p>Normalized root mean squared error: 0.35 %</p></li>
 </ul>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_GP_performance.png"><img alt="Alternative text" src="_images/nexus_tutorial_GP_performance.png" style="width: 600px;" />
+</a>
 <p>Comparing the models we can see that PLS model didn´t perform well when
 predicting datapoints with a very high or very low main product cost.
 We can see this in the model predictions vs target value plot as the
@@ -168,6 +182,8 @@ worth it considering the impact of improper decision making.</p>
 the dataset. In general, models trained with smaller datasets will be less accurate.
 To do so we have to load the model we want to analyse by clicking “Load model” and then
 select the model we want to load in the ~model_linkssubdirectory.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_scaling_perf.png"><img alt="Alternative text" src="_images/nexus_tutorial_scaling_perf.png" style="width: 600px;" />
+</a>
 <p>The assessment is initiated by clicking on “Assess data scaling performance”.
 We will then be asked to enter the number of evaluations that we want to perform.
 New models of the same type of the loaded model will then be trained with subsets of the
@@ -177,6 +193,12 @@ differently sized subets of the original training set will be trained. Therefore
 larger value for the number of evaluations will produce results of a higher resolution,
 but it will require more computational resources. By clicking “Plot scaling performance”
 the analysis is initiated. Let´s look at the results for the three model types.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_scaling_perf_PLS.png"><img alt="Alternative text" src="_images/nexus_tutorial_scaling_perf_PLS.png" style="width: 600px;" />
+</a>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_scaling_perf_RF.png"><img alt="Alternative text" src="_images/nexus_tutorial_scaling_perf_RF.png" style="width: 600px;" />
+</a>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_scaling_perf_GP.png"><img alt="Alternative text" src="_images/nexus_tutorial_scaling_perf_GP.png" style="width: 600px;" />
+</a>
 <p>We can see that the model accuracy of the PLS model was barely affected
 by the sample size. The RF model on the other hand benefited noticably from a
 larger sample size. As the RMSE was still declining at the maximum samlpe size,
@@ -208,6 +230,8 @@ With that information we can estimate how much each student contributed to
 the final result on average over all possible configurations. A more
 comprehensive explanation of the Shapley-value and SHAP can be found here.</p>
 <p>To calculate the SHAP for the loaded model we click on “Perform sensitivity analysis”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_sensitivity.png"><img alt="Alternative text" src="_images/nexus_tutorial_sensitivity.png" style="width: 600px;" />
+</a>
 <p>This will result in a pop-up where we are asked to enter the fraction of
 samples that we want to include in the analysis. This is necessary as SHAP
 values are calculated individually for each analysed datapoint, and
@@ -216,6 +240,8 @@ and in most cases won´t provide additional insight. We want to cacluate
 the SHAP values for 20% of all datapoints in our dataset and therefore
 enter 5 for x and click on “Plot explanations”. This might take some time
 depending on the chosen model and number of analysed samples!</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_sensitivity_fraction.png"><img alt="Alternative text" src="_images/nexus_tutorial_sensitivity_fraction.png" style="width: 600px;" />
+</a>
 <p>Let´s have a look at the resulting plot. The features are ranked based on
 their estimated average marginal contribution with the most important features
 being on top. We can see that the “Binding capacity of resin”, “Resin
@@ -239,6 +265,8 @@ led to in increase in the “Main product cost”. All other datapoints fall som
 in between that. If we now look at the feature “Number of batches per year” we can
 see that all datapoints have a SHAP value of 0. In other words, the “Number of
 batches per year” basically had no influence on the “Main product cost” at all.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_sensitivity_beeswarm.png"><img alt="Alternative text" src="_images/nexus_tutorial_sensitivity_beeswarm.png" style="width: 600px;" />
+</a>
 <p>Using this analysis, we always have to remember that the extent of the influence
 of each feature is closely tied to the analysed dataset and model specifically.
 Therefore, the assumptions of the original model and Monte-Carlo sampling have
@@ -259,12 +287,16 @@ produce a pop-up that allows us to do so. On the left hand side we have a list
 with all features and on the right we have a list of the responses. To predict
 the responses we simply enter the feature values that we are interested in and
 click on “Calculate outputs”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_make_preds_features.png"><img alt="Alternative text" src="_images/nexus_tutorial_make_preds_features.png" style="width: 600px;" />
+</a>
 <p>When making predictions we have to be careful that we don´t enter feature
 values that are outside of the boundaries of each feature respectively.
 The model accuracy will decrease noticably when feature values outside of
 the boundaries are used for prediction! For example, when we enter the value
 of the “Binding capacity of resin” we have to make sure that it lies between
 36 g/L and 60 g/L.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_make_preds_preds.png"><img alt="Alternative text" src="_images/nexus_tutorial_make_preds_preds.png" style="width: 600px;" />
+</a>
 </section>
 <section id="process-optimization">
 <h2>Process optimization<a class="headerlink" href="#process-optimization" title="Link to this heading"></a></h2>
@@ -272,6 +304,8 @@ of the “Binding capacity of resin” we have to make sure that it lies between
 also optimize the process using Bayesian optimization. Therefore, we click
 on “Search optimal inputs” in the “Make model predictions” pop-up, which will
 spawn another pop-up. Here we have to set a few parameters of the optimization algorithm.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_bayes_opt.png"><img alt="Alternative text" src="_images/nexus_tutorial_bayes_opt.png" style="width: 600px;" />
+</a>
 <p>The number of iterations of the optimizer:  A small number of iterations
 will result in a quick result, but the found optimium might be suboptimal.
 A large one will take unnecessarily long, but will probably result in a better
@@ -287,16 +321,20 @@ considerd equally, irrespective whether their value is 1 or 10. Let´s say we ar
 most interested in the “Main product cost”, but don´t want to ignore the other
 responses completely. Then we can for instance set the weight of the “Main
 product cost” to 8 and the other weights to 3.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_optimization_interface.png"><img alt="Alternative text" src="_images/nexus_tutorial_optimization_interface.png" style="width: 600px;" />
+</a>
 <p>Whether the optimizer should maximize or minimize the features for a response.
 We want to minimize the “Main product cost”, “PMI with water” and “PMI without
-water”, while maximzing the “mAb concentration after capturing”.
-Optional: Whether a feature should be fixed to a specified value. This might be
+water”, while maximzing the “mAb concentration after capturing”.</p>
+<p>Optional: Whether a feature should be fixed to a specified value. This might be
 interest when there are features in our dataset that we are certain won´t change.
 For instance the “Resin cost” might be fixed due to an preexisting agreement with
 the supplier. Therefore optimizing it won´t help us as we couldn´t change it even
 if we wanted to. Let´s say we want to fix it at 6000 €/L. Then we go to the “Make
 model predictions” pop-up, enter that value and click on the switch in the row that
 says “Resin cost”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_optimization_interface_fixed.png"><img alt="Alternative text" src="_images/nexus_tutorial_optimization_interface_fixed.png" style="width: 600px;" />
+</a>
 <p>Once we have parameterized the optimizer we can launch it by clicking on
 “Accept” in the “Optimize inputs” pop-up. After the optimizer has finished,
 the found feature values are automatically entered in the entry boxes of the
@@ -304,6 +342,8 @@ the found feature values are automatically entered in the entry boxes of the
 ~logsmodel_nameoptimization_logsmm_dd_yyyy_hh_mm.txt. Then we can let the
 model predict the responses with the optimized features to assess how well the
 optimization worked.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_optimization_predictions_2.png"><img alt="Alternative text" src="_images/nexus_tutorial_optimization_predictions_2.png" style="width: 600px;" />
+</a>
 <p>But what did just happen? We have performed Bayesian optimization
 with a Tree-Parzen-Estimator as implemeted in Hyperopt. The algorithm
 was originally used to optimize the hyperparameters of machine learning
@@ -329,12 +369,16 @@ Therefore, we click on “Make batch predictions”, which produces a pop-up.
 Then we generate a tempalte by clicking “Generate template”. The tamplate will
 be saved at ~/data/model_name/batch_pred_template.xlsx. It contains all the
 features required for computation of the response.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_batch_pred_input.png"><img alt="Alternative text" src="_images/nexus_tutorial_batch_pred_input.png" style="width: 600px;" />
+</a>
 <p>Then we manually enter the settings we are interested in into the table.
 Once all settings have been entered we return to the BioProcessNexus and
 click on “Make batch predictions”, which will open up a file browser with which
 we select the file containing the settings. Then the predictions will be made
 and a .xlsx file containing the features and responses will be saved at the same
 location of the template.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_batch_pred_output.png"><img alt="Alternative text" src="_images/nexus_tutorial_batch_pred_output.png" style="width: 600px;" />
+</a>
 </section>
 <section id="monte-carlo-sampling-the-surrogate-model">
 <h2>Monte Carlo sampling the surrogate model<a class="headerlink" href="#monte-carlo-sampling-the-surrogate-model" title="Link to this heading"></a></h2>
@@ -369,11 +413,15 @@ a value of 42.666 doesn´t make sense for the “Number of batches per year”).
 Depeding on the chosen distribution one or more parameters have to be set.
 When a parameter has to be set the corresponding textbox will turn white and
 the name of the required parameter will be written in that box in light grey.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_MC_sampling_configured.png"><img alt="Alternative text" src="_images/nexus_tutorial_MC_sampling_configured.png" style="width: 600px;" />
+</a>
 <p>Once all distributions have been fully defined we have to enter the number of
 samples in the textbox at the bottom. Depending on the complexity of the
 distributions more or less are needed, however, it is recommended to sample at least
 10000 datapoints. By clicking “Generate dataset” we perform the Monte Carlo
 sampling and save the resulting dataset at to location of the original dataset.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_MC_sampling_output.png"><img alt="Alternative text" src="_images/nexus_tutorial_MC_sampling_output.png" style="width: 600px;" />
+</a>
 </section>
 <section id="histograms">
 <h2>Histograms<a class="headerlink" href="#histograms" title="Link to this heading"></a></h2>
@@ -388,6 +436,8 @@ distribution is fitted to the data using the distfit package. The exact paramete
 of the fitted distributions can be found
 under ~/logs/no_model_mm_dd_yyy_hh_mm/response_name/histogram_parameters.txt and the plots are saved at
 ~/images/no_model_mm_dd_yyy_hh_mm/response_name/histogram.png.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_hist_MPC.png"><img alt="Alternative text" src="_images/nexus_tutorial_hist_MPC.png" style="width: 600px;" />
+</a>
 <p>When we look at the histogram of the “Main product cost” we can see that a beta
 distribution fits the histogram well. The mode of the distribution is 7551.34, which
 is the most likley “Main product cost” to occur under the given assumptions. We can
@@ -402,23 +452,33 @@ two boundaries of occuring. This will be done in the next section.</p>
 methods of analysis. To spawn it we first have to press on “Interactive histogram”
 and then on the button with the response we want to investigate, in our case
 the “Main product cost”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_interactive_hist.png"><img alt="Alternative text" src="_images/nexus_tutorial_interactive_hist.png" style="width: 600px;" />
+</a>
 <p>In the new window we can see the histogram of the main product cost on the left
 and the featuers with sliders on the right. The values within the brackets on
 the right side of the sliders indicate the lower and upper boundaries of the
 corresponding feature. By moving the sliders we can move the boundaries of the features,
 which in consequence removes datapoints with feature values outside of the
 boundaries from the histogram.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_interactive_hist_MPC_naive.png"><img alt="Alternative text" src="_images/nexus_tutorial_interactive_hist_MPC_naive.png" style="width: 600px;" />
+</a>
 <p>For instance by moving the lower boundary of the “Binding capacity of resin”
 to 50 g/L we (temporarily) remove all datapoints with a binding capacity lower
 than that. We can see how that change shifts the distribution of the main product
 cost to the left.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_interactive_hist_MPC_low_bc.png"><img alt="Alternative text" src="_images/nexus_tutorial_interactive_hist_MPC_low_bc.png" style="width: 600px;" />
+</a>
 <p>We can now fit a probability distribution to the new histogram by clicking “Fit distribution”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_interactive_hist_MPC_low_bc_dist.png"><img alt="Alternative text" src="_images/nexus_tutorial_interactive_hist_MPC_low_bc_dist.png" style="width: 600px;" />
+</a>
 <p>Furthermore, we can calculate the probability of an event between two boundaries
 of happening by integrating the probability distribution. Let´s say we are
 interested in the main product cost being between 5500 €/kg and 7000 €/kg.
 We then enter 5500 as the lower boundary, 7000 as the upper boundary and proceed
 by clicking “Calculate probability”. In our case the probability is 63.27%. Finally,
 we can save the plot, including the sliders, by clicking “Save image”.</p>
+<a class="reference internal image-reference" href="_images/nexus_tutorial_interactive_hist_MPC_low_bc_dist_prob.png"><img alt="Alternative text" src="_images/nexus_tutorial_interactive_hist_MPC_low_bc_dist_prob.png" style="width: 600px;" />
+</a>
 </section>
 </section>
 

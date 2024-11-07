@@ -167,7 +167,7 @@ def plot_hist(parent):
         pretty_y = y_dir.replace("_", " ")
         ax.hist(y_hist, bins=100)
         ax.set_xlabel(f"{pretty_y}", fontsize=15)
-        ax.set_ylabel("Number of samples", fontsize=15)
+        ax.set_ylabel("Number of observations", fontsize=15)
         ax2 = ax.twinx()
         ax2.plot(x_dist, y_dist, color="red")
         ax2.vlines(x_dist[y_dist.argmax()], 0, y_dist.max(),

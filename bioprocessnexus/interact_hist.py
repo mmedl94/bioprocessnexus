@@ -126,7 +126,7 @@ def interactive_hist(parent, y_dir):
     parent.ax1.hist(parent.y_hist, bins=100)
     pretty_y = y_dir.replace("_", " ")
     parent.ax1.set_xlabel(f"{pretty_y}", fontsize=15)
-    parent.ax1.set_ylabel("Number of samples", fontsize=15)
+    parent.ax1.set_ylabel("Number of observations", fontsize=15)
     # Make twin axis for dist fit and clear it
     parent.ax3 = parent.ax1.twinx()
     parent.ax3.tick_params(axis="y",
@@ -402,11 +402,11 @@ def update_hist(val, parent):
     parent.ax1.hist(upd_y_hist, bins=100)
     pretty_y = parent.y_name.replace("_", " ")
     parent.ax1.set_xlabel(f"{pretty_y}", fontsize=15)
-    parent.ax1.set_ylabel("Number of samples", fontsize=15)
+    parent.ax1.set_ylabel("Number of observations", fontsize=15)
     parent.ax1.set_xlim(parent.y_hist.min(), parent.y_hist.max())
 
     if parent.warning_trigger == 1 and parent.warning_issued == 0:
-        tk.messagebox.showwarning("Warning message", "Number of samples is low.",
+        tk.messagebox.showwarning("Warning message", "Number of observations is low.",
                                   parent=parent.interactive_hist_window)
         parent.warning_issued = 1
     if parent.warning_trigger == 0 and parent.warning_issued == 1:

@@ -235,7 +235,7 @@ def generate_data_interface(parent):
         optimize_button.grid(row=1, column=0, padx=20, pady=(10, 10))
 
         n_samples_label = ctk.CTkLabel(sampling_frame,
-                                       text="Enter number of samples:",
+                                       text="Enter number of observations:",
                                        font=ctk.CTkFont(
                                            size=15, weight="bold"),
                                        justify="left",
@@ -262,7 +262,7 @@ def generate_dataset(parent):
     sampled_dataset = pd.DataFrame()
     sampled_dataset.index.name = "Trial values"
     if parent.n_samples_data_gen.get() == "":
-        tk.messagebox.showerror("Error message", "The number of samples has not been entered.",
+        tk.messagebox.showerror("Error message", "The number of observations has not been entered.",
                                 parent=parent.data_generation_window)
     else:
         n_samples = int(parent.n_samples_data_gen.get())

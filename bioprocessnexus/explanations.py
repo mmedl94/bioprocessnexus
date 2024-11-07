@@ -17,7 +17,7 @@ from .helpers import *
 
 def make_explanation(parent):
     """
-    Initializes the SHAP explanation window, prompting the user to enter a fraction of samples to analyze.
+    Initializes the SHAP explanation window, prompting the user to enter a fraction of observations to analyze.
 
     Args:
         parent: The main application instance
@@ -37,10 +37,10 @@ def make_explanation(parent):
                                         font=ctk.CTkFont(
                                             size=15, weight="bold"),
                                         wraplength=1000)
-        parent.exp_label_text.set("Please enter fraction of samples \u00B9/\u2093 to be analyzed\n" +
-                                  "x=1   --> \u00B9/\u2081  --> 100% of samples\n" +
-                                  "x=5   --> \u00B9/\u2085  --> 20%   of samples\n" +
-                                  "x=20 --> \u00B9/\u2082\u2080 --> 5%     of samples")
+        parent.exp_label_text.set("Please enter fraction of observations \u00B9/\u2093 to be analyzed\n" +
+                                  "x=1   --> \u00B9/\u2081  --> 100% of observations\n" +
+                                  "x=5   --> \u00B9/\u2085  --> 20%   of observations\n" +
+                                  "x=20 --> \u00B9/\u2082\u2080 --> 5%     of observations")
         parent.exp_label.grid(
             row=0, column=0, columnspan=4, padx=20, pady=(20, 10))
 
@@ -69,7 +69,7 @@ def plot_explanation(parent):
 
     This function loads the model, computes SHAP values using KernelExplainer, and plots the explanations
     for each response variable. It handles memory errors gracefully by prompting the user to reduce
-    the number of samples if necessary.
+    the number of observations if necessary.
     """
     if parent.fraction.get() == "":
         tk.messagebox.showerror("Error message", "The fraction hasn´t been specified.",
@@ -136,7 +136,7 @@ def plot_explanation(parent):
             except MemoryError as err_msg:
                 if err_msg.__class__.__name__ == "MemoryError":
                     tk.messagebox.showerror(
-                        "Error message", "Please reduce number of samples!\n" + str(err_msg))
+                        "Error message", "Please reduce number of observations!\n" + str(err_msg))
                 else:
                     tk.messagebox.showerror("Error message", str(err_msg))
                 parent.exp_window.destroy()
