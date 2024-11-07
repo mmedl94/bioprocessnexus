@@ -74,6 +74,8 @@ shap==0.42.1
 sip==6.7.12
 six==1.16.0
 slicer==0.0.7
+sphinx
+sphinx_rtd_theme
 stack-data==0.6.2
 statsmodels==0.14.2
 threadpoolctl==2.2.0
