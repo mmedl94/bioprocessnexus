@@ -5,7 +5,7 @@ This package is a tool to facilitate easy sharing and analysis of techno economi
 
 ### Executable
 
-The BioProcessNexus can be launched directly by downloading bioprocess.exe from here.
+The BioProcessNexus can be launched directly by downloading bioprocess.exe from [here](https://drive.boku.ac.at/d/3e0e8e499c7c402190de/).
 
 ### PyPi
 
