@@ -196,11 +196,17 @@ def predict(parent):
     """
     try:
         X = np.array([float(i.get()) for i in parent.prediction_inputs])
-    except:
+    except ValueError:
         tk.messagebox.showerror("Error message", "Feature values were not entered correctly. " +
                                 "Make sure values are entered for all features " +
                                 "and dots are used as decimal separator.",
                                 parent=parent.prediction_window)
+    for i in range(X.shape[0]):
+        if X[i] < parent.lower_boundaries_display[i] or X[i] > parent.upper_boundaries_display[i]:
+            tk.messagebox.showerror("Error message",
+                                    f"Value of {parent.X_names[i]} out of bounds!",
+                                    parent=parent.prediction_window)
+            return
     counter = 0
     for y_dir in parent.y_names:
         model_type_dir = f"{parent.model_dir}/{y_dir}"
