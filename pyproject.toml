@@ -4,7 +4,7 @@ version = "1.0.1"
 authors = [
   { name="Matthias Medll", email="matthias.medl@chello.at" },
 ]
-description = "A package for easy sharing and analysis of techno economic models"
+description = "README.md"
 readme = "README.md"
 dependencies = [
     "requests",
