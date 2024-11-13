@@ -62,6 +62,7 @@ def plot_predictions(parent):
     calculates performance metrics (RMSE, NRMSE). The results are plotted and saved as images,
     either in a single consolidated image or individually per response variable.
     """
+    fontsize = 12
     if parent.gr_plots_switch_var.get() == "1":
         alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
                     "T", "U", "V", "W", "X", "Y", "Z"]
@@ -111,12 +112,13 @@ def plot_predictions(parent):
             fig, ax = plt.subplots(figsize=(7, 7))
         else:
             ax = axs[subplot_counter]
-            ax.text(-0.1, 1.1,
+            ax.text(-0.05, 1.1,
                     alphabet[subplot_counter],
                     fontsize=20,
                     horizontalalignment="center",
                     verticalalignment="center",
-                    transform=ax.transAxes)
+                    transform=ax.transAxes,
+                    alpha=0)
             subplot_counter += 1
 
         ax.scatter(preds, y_test)
@@ -125,8 +127,9 @@ def plot_predictions(parent):
         ax.plot((plot_min*0.95, plot_max*1.05), (plot_min*0.95, plot_max*1.05),
                 linestyle="-",
                 color="red")
-        ax.set_xlabel(f"Predicted {pretty_y}", fontsize=15)
-        ax.set_ylabel(f"{pretty_y}", fontsize=15)
+
+        ax.set_xlabel(f"Predicted {pretty_y}", fontsize=fontsize)
+        ax.set_ylabel(f"{pretty_y}", fontsize=fontsize)
         img_dir = check_dir(parent, y_dir, "images")
         if parent.gr_plots_switch_var.get() != "1":
             fig.savefig(f"{img_dir}/performance.png")
@@ -135,6 +138,18 @@ def plot_predictions(parent):
     dir = parent.model_dir.replace("data", "images")
     if parent.gr_plots_switch_var.get() == "1":
         fig.tight_layout()
+        fig.align_ylabels()
+        fig.canvas.draw()
+        for idx, ax in enumerate(axs):
+            x_coord = ax.yaxis.label.get_tightbbox().x0
+            y_coord = ax.get_tightbbox().y1
+            x_fig, y_fig = fig.transFigure.inverted().transform((x_coord, y_coord))
+            fig.text(x_fig, y_fig,
+                     alphabet[idx],
+                     fontsize=20,
+                     horizontalalignment="center",
+                     verticalalignment="center",
+                     transform=fig.transFigure)
         fig.savefig(f"{dir}/performance.png", dpi=600)
         parent.queue.put(fig)
 

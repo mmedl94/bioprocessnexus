@@ -69,7 +69,7 @@ def make_predictions(parent):
         parent.prediction_window.title("Make model predictions")
 
         height1 = X_dim*40-30
-        height2 = parent.prediction_window.winfo_screenheight()*0.7
+        height2 = parent.prediction_window.winfo_screenheight()*0.65
 
         frame_height = np.min((height1*parent.scaling_factor,
                                height2*parent.scaling_factor))

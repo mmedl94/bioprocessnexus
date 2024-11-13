@@ -188,6 +188,7 @@ def plot_hist(parent):
     if parent.gr_plots_switch_var.get() == "1":
         fig.tight_layout()
         img_dir = img_dir.rsplit("/", 1)[0]
+        fig.align_ylabels()
         fig.savefig(f"{img_dir}/histogram.png")
         parent.queue.put(fig)
     else:
