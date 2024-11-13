@@ -270,7 +270,7 @@ def mix_models(parent):
     frame_height = np.min((height1*parent.scaling_factor,
                            height2*parent.scaling_factor))
 
-    # Spawn windows with list of responses
+    # Spawn window with list of responses
     parent.mix_window = tk.Toplevel(parent, height=frame_height)
     parent.mix_window.title("Generate mixture of experts model")
 
@@ -359,11 +359,11 @@ def save_mixture_model(parent):
     initial_key = list(parent.dropdown_selection.keys())[0]
     with open(f"{parent.mix_dir}/{parent.dropdown_selection[initial_key].get()}/feature_selection.pkl", "rb") as f:
         feature_selection = pickle.load(f)
-    feature_selection.sort()
+    # feature_selection.sort()
     for key in list(parent.dropdown_selection.keys())[1:]:
         with open(f"{parent.mix_dir}/{parent.dropdown_selection[key].get()}/feature_selection.pkl", "rb") as f:
             feature_selection_ = pickle.load(f)
-        feature_selection_.sort()
+        # feature_selection_.sort()
         if feature_selection != feature_selection_:
             tk.messagebox.showerror(
                 "Error message", "The models must have the same features!")
