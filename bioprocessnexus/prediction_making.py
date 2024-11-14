@@ -67,20 +67,23 @@ def make_predictions(parent):
 
         parent.prediction_window = tk.Toplevel(parent)
         parent.prediction_window.title("Make model predictions")
+        parent.prediction_window.grid_rowconfigure(0, weight=1)
+        parent.prediction_window.grid_columnconfigure(0, weight=1)
+        parent.prediction_window.grid_columnconfigure(1, weight=1)
 
         height1 = X_dim*40-30
-        height2 = parent.prediction_window.winfo_screenheight()*0.65
+        height2 = parent.prediction_window.winfo_screenheight()*0.7
 
         frame_height = np.min((height1*parent.scaling_factor,
                                height2*parent.scaling_factor))
 
         X_frame = ctk.CTkScrollableFrame(
             parent.prediction_window, height=frame_height, corner_radius=0)
-        X_frame.grid(row=0, column=0, sticky="ns", padx=20)
+        X_frame.grid(row=0, column=0, sticky="nsew", padx=20)
 
         y_frame = ctk.CTkScrollableFrame(
             parent.prediction_window, height=frame_height, corner_radius=0)
-        y_frame.grid(row=0, column=1, sticky="ns", padx=20)
+        y_frame.grid(row=0, column=1, sticky="nsew", padx=20)
 
         get_results_button = ctk.CTkButton(parent.prediction_window,
                                            width=200,

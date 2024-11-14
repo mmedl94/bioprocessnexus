@@ -55,6 +55,8 @@ def generate_data_interface(parent):
 
         parent.data_generation_window = tk.Toplevel(parent)
         parent.data_generation_window.title("Generate new dataset")
+        parent.data_generation_window.grid_rowconfigure(0, weight=1)
+        parent.data_generation_window.grid_columnconfigure(0, weight=1)
 
         height1 = X_dim*40-30
         height2 = parent.data_generation_window.winfo_screenheight()*0.7

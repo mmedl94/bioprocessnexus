@@ -67,7 +67,7 @@ def interactive_hist(parent, y_dir):
     parent.interactive_hist_window = tk.Toplevel(parent)
     parent.interactive_hist_window.title("Interactive histogram")
     parent.image_frame = ctk.CTkScrollableFrame(parent.interactive_hist_window)
-    parent.image_frame.grid(row=0, column=0, columnspan=5)
+    parent.image_frame.grid(row=0, column=0, columnspan=5, sticky="nsew")
     parent.warning_issued = 0
     parent.warning_trigger = 0
     if parent.model_loaded == 1:

@@ -1,6 +1,6 @@
 [project]
 name = "bioprocessnexus"
-version = "1.0.4"
+version = "1.0.5"
 authors = [
   { name="Matthias Medll", email="matthias.medl@chello.at" },
 ]

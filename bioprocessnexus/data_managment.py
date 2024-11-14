@@ -123,9 +123,9 @@ def choose_y(parent):
         parent.feature_selection = {}
 
         frame_response = ctk.CTkScrollableFrame(parent.y_select_window)
-        frame_response.grid(row=0, column=0, padx=20, pady=0)
+        frame_response.grid(row=0, column=0, padx=20, pady=0, sticky="nsew")
         frame_feature = ctk.CTkScrollableFrame(parent.y_select_window)
-        frame_feature.grid(row=0, column=1, padx=20, pady=0)
+        frame_feature.grid(row=0, column=1, padx=20, pady=0, sticky="nsew")
 
         parent.response_label = ctk.CTkLabel(frame_response,
                                              text="Select responses",
@@ -278,7 +278,8 @@ def mix_models(parent):
     parent.mix_window.grid_columnconfigure((0, 1), weight=1)
 
     frame_response = ctk.CTkScrollableFrame(parent.mix_window)
-    frame_response.grid(row=0, column=0, columnspan=3, padx=20, pady=0)
+    frame_response.grid(row=0, column=0, columnspan=3,
+                        padx=20, pady=0, sticky="nsew")
 
     parent.response_label = ctk.CTkLabel(frame_response,
                                          text="Responses",
