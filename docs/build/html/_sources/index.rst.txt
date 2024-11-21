@@ -6,18 +6,19 @@
 Welcome to bioprocessnexus's documentation!
 ===========================================
 
-The BioProcessNexus is a project to enable free sharing of economic process models and life cycle
-analsis via surrogate models. The heartpieces of the project are an open-source python software
-for the generation and analysis of surrogate models and a data repository containing raw data
-from original models as well as pre-trained surrogate models.
+The BioProcessNexus is a project to enable free sharing of techno economic process
+models and life cycle analsis via surrogate models. The heartpieces of the project
+are an open-source python software for the generation and analysis of surrogate
+models and a data repository containing Monte-Carlo data from original models as
+well as pre-trained surrogate models.
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   modules
    tutorials
+   modules
    downloads
 
 Indices and tables

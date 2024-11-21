@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="next" title="Download links" href="downloads.html" />
     <link rel="prev" title="Documentation" href="modules.html" /> 
 </head>
 
@@ -44,6 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">bioprocessnexus package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -147,7 +148,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="downloads.html">Download links</a></li>
 </ul>
 
@@ -309,7 +309,7 @@ data format and compatibility.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="bioprocessnexus.explanations.make_explanation">
 <span class="sig-prename descclassname"><span class="pre">bioprocessnexus.explanations.</span></span><span class="sig-name descname"><span class="pre">make_explanation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.explanations.make_explanation" title="Link to this definition"></a></dt>
-<dd><p>Initializes the SHAP explanation window, prompting the user to enter a fraction of samples to analyze.</p>
+<dd><p>Initializes the SHAP explanation window, prompting the user to enter a fraction of observations to analyze.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>parent</strong> – The main application instance</p>
@@ -331,7 +331,7 @@ data format and compatibility.</p>
 </dl>
 <p>This function loads the model, computes SHAP values using KernelExplainer, and plots the explanations
 for each response variable. It handles memory errors gracefully by prompting the user to reduce
-the number of samples if necessary.</p>
+the number of observations if necessary.</p>
 </dd></dl>
 
 </section>
@@ -612,6 +612,11 @@ and saves both the plot and distribution parameters.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
 <p>The core class of the GUI. It sets up all the buttons of the
 initial GUI window.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioprocessnexus.main.nexus.on_closing">
+<span class="sig-name descname"><span class="pre">on_closing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bioprocessnexus.main.nexus.on_closing" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -1077,7 +1082,7 @@ evaluation, and SHAP explanations.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="downloads.html" class="btn btn-neutral float-right" title="Download links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
