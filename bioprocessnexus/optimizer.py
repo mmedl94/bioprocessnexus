@@ -33,7 +33,9 @@ def target_function(param_space):
     model_dir = param_space["model_dir"]
     # Load models
     y_names = []
-    for response in os.listdir(model_dir):
+    responses = os.listdir(model_dir)
+    responses.remove("feature_selection.pkl")
+    for response in responses:
         response_path = f"{model_dir}/{response}"
         if os.path.isdir(response_path):
             y_names.append(response)
@@ -121,9 +123,12 @@ def optimize(parent):
 
     parent.min_max = []
     parent.optimization_ratios = []
+
+    responses = os.listdir(parent.model_dir)
+    responses.remove("feature_selection.pkl")
     for j in range(parent.y_dim):
         label = ctk.CTkLabel(parent.optimization_window,
-                             text=f"{os.listdir(parent.model_dir)[j]}", justify="left")
+                             text=f"{responses[j]}", justify="left")
         label.grid(row=j+2, column=0, padx=5, pady=5, sticky="w")
 
         entry_text = tk.DoubleVar()

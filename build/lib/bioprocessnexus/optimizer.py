@@ -27,13 +27,13 @@ def target_function(param_space):
     X = []
     for X_name in param_space["X_names"]:
         X.append(param_space[X_name])
-    print(param_space["X_names"])
-    print(X)
+
     X = np.array(X)
     preds = []
     model_dir = param_space["model_dir"]
     # Load models
     y_names = []
+    print(os.listdir(model_dir))
     for response in os.listdir(model_dir):
         response_path = f"{model_dir}/{response}"
         if os.path.isdir(response_path):
@@ -50,26 +50,9 @@ def target_function(param_space):
             pred = pred[:, 0]
         preds.append(pred)
 
-    # Normalize preds
-    # normalized_preds = np.empty(len(preds))
-    # for i in range(len(preds)):
-    #    norm_pred = (preds[i]-param_space["mins"][i]) / \
-    #        (param_space["maxs"][i]-param_space["mins"][i])
-    #    normalized_preds[i] = norm_pred[0]
-
-    # for i in range(len(preds)):
-    #    norm_pred = (preds[i]-param_space["y_mus"][i]) / \
-    #        (param_space["y_stds"][i])
-    #    normalized_preds[i] = norm_pred[0]
-
-    print("preds", preds)
-    print("opt_rations", param_space["opt_ratios"])
-    print("y_names", y_names)
     # Calculate target
     target = (np.array(param_space["opt_ratios"])
               * np.concatenate(preds)).sum()
-    print("target", np.array(param_space["opt_ratios"])
-          * np.concatenate(preds))
     return -target
 
 
@@ -188,7 +171,6 @@ def optimize(parent):
 
         X = np.vstack((X_train, X_test))
         y = np.hstack((y_train, y_test))
-        print(y)
 
         # Get indices of the n_obs_extremes smallest and n_obs_extremes largest y values
         sorted_indices = np.argsort(y)
@@ -216,9 +198,6 @@ def optimize(parent):
                                                         0.0000000001,
                                                         parent.upper_boundaries[i]+0.0000000001)
 
-    print(parent.upper_boundaries)
-    print(parent.lower_boundaries)
-
     # Transfrom eval_points to dicts for hyperopt
     eval_points_dicts = [dict(zip(parent.X_names, point))
                          for point in eval_points]
@@ -232,8 +211,6 @@ def optimize(parent):
     param_space["opt_ratios"] = parent.optimization_ratios
     param_space["min_max"] = parent.min_max
     param_space["eval_points"] = eval_points_dicts
-
-    # print("eval points: ", eval_points_dicts)
 
     optimize_button = ctk.CTkButton(parent.optimization_window,
                                     width=200,
@@ -303,7 +280,6 @@ def check_hbo_queue(parent):
     """
     if not parent.queue.empty():
         parent.results = parent.queue.get()
-        print("f results", parent.results)
 
         y_dir = parent.y_names[0]
         with open(f"{parent.model_dir}/{y_dir}/X_mus", "rb") as f:
