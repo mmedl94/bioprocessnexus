@@ -47,7 +47,7 @@ class disclaimer(ctk.CTkToplevel):
     def __init__(self, master):
         super().__init__(master=master)
         self.protocol("WM_DELETE_WINDOW", self.master.destroy)
-        self.title("BioProcessNexus - 1.0.5")
+        self.title("BioProcessNexus - 1.0.6")
         self.disclaimer_label = ctk.CTkLabel(self,
                                              text="Reminder: Using external sources without citing them goes against good " +
                                              "scientific practice and is considered plagiarism. Please ensure that you cite the " +
@@ -76,7 +76,7 @@ class nexus(ctk.CTkToplevel):
         super().__init__(master=master)
 
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
-        self.title("BioProcessNexus - 1.0.5")
+        self.title("BioProcessNexus - 1.0.6")
         self.var_names = ["None selected"]
         self.filename = "None"
         self.prediction_inputs = []
